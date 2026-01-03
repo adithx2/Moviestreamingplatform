@@ -43,7 +43,7 @@ const Navbar = () => {
             </li>
 
             <li>
-              <Link to='/search'>Search</Link>
+              <Link to='/moviedetails'>MovieDetails</Link>
             </li>
 
             <li>
