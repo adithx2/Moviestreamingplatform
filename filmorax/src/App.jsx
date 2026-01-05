@@ -1,13 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Watchlist from './pages/Watchlist'
 import Tvshows from './pages/Tvshows'
 import MovieDetails from './pages/MovieDetails'
 import RootLayout from './layout/Rootlayout'
 import Landing from './pages/Landing'
-import Login from './components/Login'
-import Logout from './components/Logout'
 import Footer from './pages/Footer'
 
 
@@ -18,20 +17,18 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Landing />} />
-          <Route path='/login' element={<Login />} />
- <Route path='/logout' element={<Logout />} />
+
           <Route element={<RootLayout />}>
             <Route path='/home' element={<Home />} />
             <Route path='watchlist' element={<Watchlist />} />
             <Route path='tvshows' element={<Tvshows />} />
             <Route path='moviedetails' element={<MovieDetails />} />
           </Route>
-
         </Routes>
 
         {/* <Footer/> */}
 
-        <Footer />
+        <Footer/>
       </BrowserRouter>
 
     </div>
