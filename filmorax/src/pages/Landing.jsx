@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -7,7 +8,7 @@ const Landing = () => {
   const handleSignIn = (e) => {
     e.preventDefault();
 
-    navigate("/home");
+    navigate("/Login");
   };
 
   return (
@@ -35,7 +36,7 @@ const Landing = () => {
 
       </header>
       {/* Background image */}
-      <div className=" relative top-0 h-screen w-full overflow-hidden">
+      <div className="bg-fixed bg-no-repeat bog-center h-screen w-full overflow-hidden">
         <img
           src="https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg"
           alt="Background"
@@ -46,10 +47,16 @@ const Landing = () => {
         {/* Content */}
 
         <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 flex justify-center items-center text-white max-w-full h-full px-4">
+        <div className="relative z-10 flex flex-col justify-center items-center text-white max-w-full h-full px-4">
           <h1 className="text-white text-4xl md:text-5xl font-bold text-center">
             Unlimited movies, shows <br />Your favorite stories start here.
           </h1>
+
+          <Link to="/login" className="p-8">
+
+
+            <button className="bg-yellow-500 hover:bg-yellow-700 px-14 py-4 rounded textt-lg font-semibold">Get Started</button>
+          </Link>
 
         </div>
 
@@ -57,8 +64,7 @@ const Landing = () => {
       </div>
 
       {/* grid */}
-
-      <div className="flex gap-4 p-10 bg-linear-to-br from-[#373a48] via-[#14122a] to-black grid-cols-5">
+      <div className="flex gap-4 p-10 bg-linear-to-br from-[#373a48] via-[#14122a] to-black border-t-red-500 grid-cols-5">
         <div className="relative rounded-2xl p-6 
       bg-linear-to-br from-[#1a1f3c] via-[#122f5e] to-black">
           <h3 className="text-xl font-semibold text-yellow-500">Enjoy on your TV</h3>
@@ -98,7 +104,7 @@ const Landing = () => {
 
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
 
   );
