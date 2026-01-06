@@ -19,7 +19,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Landing />} />
           <Route path='/login' element={<Login />} />
- <Route path='/logout' element={<Logout />} />
+          <Route path='/logout' element={<Logout />} />
           <Route element={<RootLayout />}>
             <Route path='/home' element={<Home />} />
             <Route path='watchlist' element={<Watchlist />} />
@@ -28,8 +28,6 @@ const App = () => {
           </Route>
 
         </Routes>
-
-        {/* <Footer/> */}
 
         <Footer />
       </BrowserRouter>
