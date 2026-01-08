@@ -49,9 +49,9 @@ const Navbar = () => {
               <Link to='/tvshows' className="hover:text-gray-300">Tv Shows</Link>
             </li>
 
-            <li>
+            {/* <li>
               <Link to='/moviedetails' className="hover:text-gray-300">MovieDetails</Link>
-            </li>
+            </li> */}
 
             <li>
               <Link to='/watchlist' className="hover:text-gray-300">Watchlist</Link>
