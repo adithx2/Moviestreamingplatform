@@ -39,7 +39,7 @@ const MovieDetails = () => {
   return (
     <div className="relative min-h-screen text-white overflow-hidden">
       
-      {/* 🔹 BLUR BACKGROUND IMAGE */}
+      
       <div
         className="absolute inset-0 bg-cover bg-center blur-xl scale-110"
         style={{
@@ -47,14 +47,14 @@ const MovieDetails = () => {
         }}
       ></div>
 
-      {/* 🔹 DARK OVERLAY */}
+     
       <div className="absolute inset-0 bg-black/70"></div>
 
-      {/* 🔹 CONTENT */}
+      {/*  Content */}
       <div className="relative z-10 pt-28 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 bg-black/40 backdrop-blur-md p-6 rounded-lg">
 
-          {/* Poster */}
+          {/* Images */}
           <img
             src={movie.image?.original}
             alt={movie.name}
