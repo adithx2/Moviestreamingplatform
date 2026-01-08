@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { fetchTrendingMovies } from "../data/movies";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -8,6 +9,13 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+  if (id === "strangerthings") {
+
+    fetchTrendingMovies().then((res) => {
+      setMovie(res[0]);
+      setLoading(false);
+    });
+  } else {
     axios
       .get(`https://api.tvmaze.com/shows/${id}`)
       .then((res) => {
@@ -18,6 +26,7 @@ const MovieDetails = () => {
         console.error(err);
         setLoading(false);
       });
+    }
   }, [id]);
 
   if (loading) {
@@ -68,15 +77,19 @@ const MovieDetails = () => {
             </h1>
 
             <p className="text-gray-300 mb-2">
-              ⭐ Rating: {movie.rating?.average || "N/A"}
+              ⭐ Rating: {movie.rating?.average}
             </p>
 
             <p className="text-gray-300 mb-2">
               📅 Premiered: {movie.premiered}
             </p>
 
-            <p className="text-gray-300 mb-4">
-              🎭 Genres: {movie.genres.join(", ")}
+            <p className="text-gray-300 mb-2">
+              🎭 Genres: {movie.genres?.length ? movie.genres.join(", ") : " science fiction horror drama "}
+            </p>
+
+            <p className="text-gray-300 mb-2">
+              {movie.content}
             </p>
 
             <div

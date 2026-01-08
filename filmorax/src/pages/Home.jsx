@@ -25,6 +25,7 @@ const Home = () => {
     loadMovies();
   }, []);
 
+
   if (loading) {
     return (
       <div className="bg-black text-white text-center pt-32">
@@ -67,7 +68,7 @@ const Home = () => {
               </p>
 
               <p className="text-md leading-relaxed mb-7">
-                {movie.content}
+                {movie.story}
               </p>
 
               <div className="flex gap-4">
@@ -78,7 +79,7 @@ const Home = () => {
 
                 {/* More Info Button */}
                 <button
-                  onClick={() => navigate(`/moviedetails/${movie.id}`)}
+                  onClick={() => navigate(`/moviedetails/strangerthings`)}
                   className="bg-gray-700 px-6 py-2 rounded font-semibold hover:bg-gray-600"
                 >
                   More Info
