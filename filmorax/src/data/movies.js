@@ -27,7 +27,7 @@ export const fetchRecommendedMovies = async () => {
 
     return res.data
       .filter(show => show.image)
-      .slice(20, 60);
+      .slice(10, 88);
   } catch (error) {
     console.error("Recommended API error:", error);
     return [];

@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Watchlist from './pages/Watchlist'
 import Tvshows from './pages/Tvshows'
 import MovieDetails from './pages/MovieDetails'
+import Search from './components/Search'
 import RootLayout from './layout/Rootlayout'
 import Landing from './pages/Landing'
 import Login from './components/Login'
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/logout' element={<Logout />} />
           <Route element={<RootLayout />}>
             <Route path='/home' element={<Home />} />
+            <Route path='/search' element={<Search/>}/>
             <Route path='watchlist' element={<Watchlist />} />
             <Route path='tvshows' element={<Tvshows />} />
             <Route path='moviedetails/:id' element={<MovieDetails />} />

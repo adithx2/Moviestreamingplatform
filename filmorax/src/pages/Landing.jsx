@@ -59,7 +59,7 @@ const Landing = () => {
 
             <Link to="/login" className="p-8">
 
-              <button className="bg-yellow-500 hover:bg-yellow-700 px-14 py-4 rounded textt-lg font-semibold">Get Started</button>
+              <button className="bg-yellow-500 text-black hover:bg-yellow-700 px-14 py-4 rounded font-semibold">Get Started</button>
             </Link>
 
           </div>

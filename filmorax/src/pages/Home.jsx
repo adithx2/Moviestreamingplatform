@@ -4,6 +4,7 @@ import {
   fetchRecommendedMovies,
 } from "../data/movies";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [trending, setTrending] = useState([]);
@@ -61,7 +62,7 @@ const Home = () => {
             <div className="max-w-xl text-white">
               <h1 className="text-5xl font-extrabold mb-4">
                 {movie.name}
-              </h1>
+              </h1>  
 
               <p className="text-sm text-gray-300 mb-4">
                 ⭐ Rating: {movie.rating?.average}
@@ -73,9 +74,13 @@ const Home = () => {
 
               <div className="flex gap-4">
                 {/* Watch Button */}
+
+                <Link to={'https://youtu.be/AfQ13jsLDms'}>
                 <button className="bg-yellow-500 text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400">
                    Watch
                 </button>
+
+                </Link>
 
                 {/* More Info Button */}
                 <button
@@ -92,7 +97,7 @@ const Home = () => {
 
       {/* RECOMMENDED */}
       <h2 className="text-white text-2xl px-8 font-bold mb-6">
-        Recommended Shows
+        Recommended Movies
       </h2>
 
       <div className="grid grid-cols-2 p-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
