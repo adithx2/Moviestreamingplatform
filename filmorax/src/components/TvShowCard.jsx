@@ -1,27 +1,26 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const MovieCard = ({ movie }) => {
+const TvShowCard = ({ show }) => {
   const navigate = useNavigate();
 
   return (
     <div
       className="cursor-pointer"
-      onClick={() => navigate(`/moviedetails/${movie.id}`)}
+      onClick={() => navigate(`/moviedetails/${show.id}`)}
     >
       <img
         src={
-          movie.image?.medium
-          
+          show.image?.medium
         }
-        alt={movie.name}
+        alt={show.name}
         className="rounded hover:scale-105 transition duration-300"
       />
       <p className="text-sm mt-2 text-center text-gray-300">
-        {movie.name}
+        {show.name}
       </p>
     </div>
   );
 };
 
-export default MovieCard;
+export default TvShowCard;

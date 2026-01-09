@@ -1,28 +1,31 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import TvShowCard from "../components/TvShowCard";
+import MovieCard from "../components/Moviecard";
 
-const TvShows = () => {
-  const [shows, setShows] = useState([]);
+const Movies = () => {
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     axios.get("https://api.tvmaze.com/shows")
     .then((res) => {
-      setShows(res.data.filter(item => item.image).slice(40,70))
+
+    const movieLike = res.data.filter(item => item.image).slice(1,55);
+      setMovies(movieLike);
     });
   }, []);
 
+
   return (
     <div className="bg-black min-h-screen pt-24 px-6 text-white">
-      <h1 className="text-2xl font-bold mb-6">TV Shows</h1>
+      <h1 className="text-2xl font-bold mb-6">Movies</h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {shows.map((show) => (
-          <TvShowCard key={show.id} show={show} />
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </div>
   );
 };
 
-export default TvShows;
+export default Movies;

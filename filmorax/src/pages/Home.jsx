@@ -37,7 +37,7 @@ const Home = () => {
 
   const movie = trending[0]
   return (
-    
+
     <div className="bg-black min-h-screen border-2 border-gray-500 pt-18 text-white">
 
       {/*  TRENDING */}
@@ -49,7 +49,7 @@ const Home = () => {
             backgroundImage: `url(${movie.image.original})`,
           }}
         >
-         
+
           <div className="absolute inset-0 bg-linear-to-r from-black via-black/70 to-transparent"></div>
 
           <h1 className="relative z-10 text-2xl font-bold px-10 pt-10 text-white">
@@ -62,7 +62,7 @@ const Home = () => {
             <div className="max-w-xl text-white">
               <h1 className="text-5xl font-extrabold mb-4">
                 {movie.name}
-              </h1>  
+              </h1>
 
               <p className="text-sm text-gray-300 mb-4">
                 ⭐ Rating: {movie.rating?.average}
@@ -73,12 +73,13 @@ const Home = () => {
               </p>
 
               <div className="flex gap-4">
+
                 {/* Watch Button */}
 
                 <Link to={'https://youtu.be/AfQ13jsLDms'}>
-                <button className="bg-yellow-500 text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400">
-                   Watch
-                </button>
+                  <button className="bg-yellow-500 text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400">
+                    Watch
+                  </button>
 
                 </Link>
 
@@ -121,8 +122,8 @@ const Home = () => {
     </div>
 
   );
-    
 
-  };
+
+};
 
 export default Home;
