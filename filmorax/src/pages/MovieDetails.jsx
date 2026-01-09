@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { fetchTrendingMovies } from "../data/movies";
+import { Addwatchlist } from "../components/Addwatchlist";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -9,25 +10,26 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  if (id === "strangerthings") {
+    if (id === "strangerthings") {
 
-    fetchTrendingMovies().then((res) => {
-      setMovie(res[0]);
-      setLoading(false);
-    });
-  } else {
-    axios
-      .get(`https://api.tvmaze.com/shows/${id}`)
-      .then((res) => {
-        setMovie(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
+      fetchTrendingMovies().then((res) => {
+        setMovie(res[0]);
         setLoading(false);
       });
+    } else {
+      axios
+        .get(`https://api.tvmaze.com/shows/${id}`)
+        .then((res) => {
+          setMovie(res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          setLoading(false);
+        });
     }
   }, [id]);
+
 
   if (loading) {
     return (
@@ -45,10 +47,11 @@ const MovieDetails = () => {
     );
   }
 
+
   return (
     <div className="relative min-h-screen text-white overflow-hidden">
-      
-      
+
+
       <div
         className="absolute inset-0 bg-cover bg-center blur-xl scale-110"
         style={{
@@ -56,7 +59,7 @@ const MovieDetails = () => {
         }}
       ></div>
 
-     
+
       <div className="absolute inset-0 bg-black/70"></div>
 
       {/*  Content */}
@@ -97,7 +100,7 @@ const MovieDetails = () => {
               dangerouslySetInnerHTML={{ __html: movie.summary }}
             />
 
-            <button className="bg-red-600 px-6 py-2 rounded hover:bg-red-700">
+            <button onClick={() => Addwatchlist (movie)} className="bg-red-600 px-6 py-2 rounded hover:bg-red-700">
               Add to Watchlist
             </button>
           </div>

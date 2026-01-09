@@ -12,7 +12,6 @@ const Landing = () => {
 
   return (
 
-
     <div className="min-h-scree w-full bg-black text-white" >
 
       <header className="fixed w-full top-0 left-0 items-center px-8 py-5 z-50">
@@ -23,12 +22,12 @@ const Landing = () => {
           </h1>
 
           <div className="flex items-center gap-4">
-            <select className="text-white border-2 border-gray-400 bg-black/40 px-3 py-1 rounded ">
+            <select className="text-white border-2 border-gray-400 bg-black/40 px-4 py-1 rounded ">
               <option>English</option>
               <option>Malayalam</option>
             </select>
 
-            <button onClick={handleSignIn} className="bg-red-600 text-white px-5 py-1 rounded">
+            <button onClick={handleSignIn} className="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded">
               Sign In
             </button>
           </div>

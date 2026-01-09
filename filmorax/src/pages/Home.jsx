@@ -97,7 +97,7 @@ const Home = () => {
       )}
 
       {/* RECOMMENDED */}
-      <h2 className="text-white text-2xl px-8 font-bold mb-6">
+      <h2 className=" text-white text-2xl px-8 font-bold mb-6">
         Recommended Movies
       </h2>
 

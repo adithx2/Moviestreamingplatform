@@ -36,6 +36,8 @@ const Navbar = () => {
 
         </div>
 
+       
+
         {/* Menu */}
 
         <div className=' flex justify-center px-40'>
@@ -79,7 +81,7 @@ const Navbar = () => {
           <div className="ml-auto">
           <button
             onClick={handleLogout}
-            className="bg-red-600 p-2 rounded hover:bg-red-700"
+            className="bg-red-600 px-2 py-2 rounded hover:bg-red-700"
           >
             Logout
           </button>

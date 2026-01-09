@@ -16,7 +16,7 @@ const Movies = () => {
 
 
   return (
-    <div className="bg-black min-h-screen pt-24 px-6 text-white">
+    <div className="bg-black p-4 min-h-screen pt-24 px-6 text-white">
       <h1 className="text-2xl font-bold mb-6">Movies</h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
