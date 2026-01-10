@@ -98,7 +98,7 @@ const Home = () => {
 
       {/* RECOMMENDED */}
       <h2 className=" text-white text-2xl px-8 font-bold mb-6">
-        Recommended Movies
+        Recommended For you
       </h2>
 
       <div className="grid grid-cols-2 p-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">

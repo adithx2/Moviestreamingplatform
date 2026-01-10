@@ -11,6 +11,7 @@ const Footer = () => {
 
 
                     {/* Footer Links */}
+
                     <div className="grid grid-cols-2 pt-5 md:grid-cols-4 gap-4 text-sm">
                         <p className="hover:underline cursor-pointer">Audio Description</p>
                         <p className="hover:underline cursor-pointer">Help Center</p>

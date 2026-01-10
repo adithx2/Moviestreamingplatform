@@ -3,14 +3,14 @@ import Navbar from '../components/Navbar'
 
 const RootLayout = () => {
   return (
-    <>
 
+    <>
+    
       <Navbar />
 
-      <Outlet/>
+      <Outlet />
 
     </>
-
 
   )
 }

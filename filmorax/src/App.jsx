@@ -8,6 +8,7 @@ import Movies from './pages/Movies'
 import Search from './components/Search'
 import RootLayout from './layout/Rootlayout'
 import Landing from './pages/Landing'
+import Profile from './components/Profile'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import Footer from './pages/Footer'
@@ -18,12 +19,16 @@ const App = () => {
     <div>
 
       <BrowserRouter>
+
         <Routes>
+
+          {location.pathname !== "/profile" && <Navbar />}
           <Route path='/' element={<Landing />} />
           <Route path='/login' element={<Login />} />
           <Route path='/logout' element={<Logout />} />
           <Route element={<RootLayout />}>
             <Route path='/home' element={<Home />} />
+            <Route path='profile' element={<Profile/>}/>
             <Route path='/search' element={<Search/>}/>
             <Route path='watchlist' element={<Watchlist />} />
             <Route path='movies' element={<Movies/>}/>
