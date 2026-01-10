@@ -21,8 +21,6 @@ const App = () => {
       <BrowserRouter>
 
         <Routes>
-
-          {location.pathname !== "/profile" && <Navbar />}
           <Route path='/' element={<Landing />} />
           <Route path='/login' element={<Login />} />
           <Route path='/logout' element={<Logout />} />
