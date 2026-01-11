@@ -34,11 +34,11 @@ const Profile = () => {
     return (
         <div className="relative flex justify-center w-full min-h-screen pt-24 px-8 text-white items-center">
 
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg" alt="background" className='absolute inset-0 w-full h-full opacity-40 object-cover ' />
+            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg" alt="background" className='absolute inset-0 w-full h-full object-cover ' />
 
-            <div className='absolute inset-0 bg-black/70'></div>
+            <div className="absolute z-5 inset-0 bg-black/40 to-transparent"></div>
 
-            <div className="relative z-10 w-full max-w-md rounded-md bg-white/5 backdrop-blur-xl border-white/10 shadow-2xl p-10">
+            <div className="relative z-10 w-full max-w-md rounded-md bg-black/50 backdrop-blur-xl border-white/10 shadow-2xl p-10">
 
                 <div className="flex items-center gap-5 mb-8">
                     <div className="w-16 h-16 rounded-full items-center bg-yellow-500 flex justify-center text-white text-2xl font-bold shadow-lg">

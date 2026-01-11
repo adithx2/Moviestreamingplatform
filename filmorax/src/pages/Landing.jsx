@@ -8,6 +8,7 @@ const Landing = () => {
     e.preventDefault();
 
     navigate("/Login");
+    
   };
 
   return (
@@ -40,6 +41,7 @@ const Landing = () => {
 
         <div className=" bg-fixed bg-no-repeat h-screen w-full overflow-hidden">
           <img
+
             src="https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg"
             alt="Background"
             className="absolute inset-0 w-full h-full object-cover"
@@ -58,11 +60,10 @@ const Landing = () => {
 
             <Link to="/login" className="p-8">
 
-              <button className="bg-yellow-500 text-black hover:bg-yellow-700 px-14 py-4 rounded font-semibold">Get Started</button>
+              <button className="bg-yellow-500 text-white font-bold hover:bg-yellow-700 px-14 py-4 rounded">Get Started</button>
             </Link>
 
           </div>
-
 
         </div>
 
@@ -70,14 +71,12 @@ const Landing = () => {
 
       {/* grid */}
 
-
       <div className="p-10  border-t border-yellow-500">
         <h2 className="text-2xl pt-5 px-11 font-semibold text-white mb-4">
           More reasons to join
         </h2>
 
         <div className="flex gap-4 p-5 ">
-
 
           <div className="relative rounded-2xl p-6 
       bg-linear-to-br from-[#1a1f3c] via-[#122f5e] to-black">
@@ -87,7 +86,6 @@ const Landing = () => {
             </p>
 
           </div>
-
 
           <div className="relative rounded-2xl p-6 h-50
       bg-linear-to-br from-[#1a1f3c] via-[#122f5e] to-black">
@@ -121,10 +119,7 @@ const Landing = () => {
       </div>
     </div>
 
-
-
   );
 };
 
 export default Landing
-

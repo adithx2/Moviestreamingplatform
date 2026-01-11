@@ -48,12 +48,14 @@ const Home = () => {
             backgroundImage: `url(${movie.image.original})`,
           }}
         >
+          <div className="absolute inset-0 bg-linear-to-r from-black via-black/50 to-transparent"></div>
 
-          <div className="absolute inset-0 bg-linear-to-r from-black via-black/70 to-transparent"></div>
-
+          <div className="pt-16">
           <h1 className="relative z-10 text-2xl font-bold px-10 pt-10 text-white">
             Trending Movie
           </h1>
+
+          </div>
 
           {/* Content */}
 
@@ -76,6 +78,7 @@ const Home = () => {
                 {/* Watch Button */}
 
                 <Link to={'https://youtu.be/AfQ13jsLDms'}>
+
                   <button className="bg-yellow-500 text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400">
                     Watch
                   </button>
@@ -119,9 +122,7 @@ const Home = () => {
         ))}
       </div>
     </div>
-
   );
-
 
 };
 
