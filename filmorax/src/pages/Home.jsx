@@ -37,7 +37,7 @@ const Home = () => {
   const movie = trending[0]
   return (
 
-    <div className="bg-black min-h-screenn border-2 border-gray-500 pt-18 text-white">
+    <div className="bg-black min-h-screen border-2 border-gray-500 pt-18 text-white">
 
       {/*  TRENDING */}
 
@@ -49,13 +49,10 @@ const Home = () => {
           }}
         >
           <div className="absolute inset-0 bg-linear-to-r from-black via-black/50 to-transparent"></div>
-
-          <div className="pt-16">
+          
           <h1 className="relative z-10 text-2xl font-bold px-10 pt-10 text-white">
             Trending Movie
           </h1>
-
-          </div>
 
           {/* Content */}
 
