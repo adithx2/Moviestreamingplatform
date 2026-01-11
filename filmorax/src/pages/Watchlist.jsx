@@ -61,9 +61,9 @@ const Watchlist = () => {
               />
 
               <button
-                onClick={() => removeFromWatchlist(movie.id)} className='absolute top-2 right-2 bg-black/70 px-2 py-2 rounded text-xs hover:bg-red-600'
+                onClick={() => removeFromWatchlist(movie.id)} className='absolute top-2 right-2 bg-black/70 px-4 py-2 rounded text-xs hover:bg-red-600'
               >
-                ✕
+                x
               </button>
 
               <p className="text-sm text-center mt-2">

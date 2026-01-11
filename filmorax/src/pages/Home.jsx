@@ -26,14 +26,13 @@ const Home = () => {
     loadMovies();
   }, []);
 
-
-  // if (loading) {
-  //   return (
-  //     <div className="bg-black text-white text-center pt-32">
-  //       Loading movies...
-  //     </div>
-  //   );
-  // }
+  if (loading) {
+    return (
+      <div className="bg-black h-screen text-white text-center pt-32">
+        Loading...
+      </div>
+    );
+  }
 
   const movie = trending[0]
   return (
