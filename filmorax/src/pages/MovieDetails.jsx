@@ -33,7 +33,7 @@ const MovieDetails = () => {
 
   if (loading) {
     return (
-      <div className="bg-black text-white text-center pt-32">
+      <div className="bg-black h-screen text-white text-center pt-32">
         Loading...
       </div>
     );
@@ -41,7 +41,7 @@ const MovieDetails = () => {
 
   if (!movie) {
     return (
-      <div className="bg-black text-white text-center pt-32">
+      <div className="bg-black w-full h-screen text-white text-center pt-32">
         Movie not found
       </div>
     );

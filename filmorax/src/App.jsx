@@ -26,10 +26,10 @@ const App = () => {
           <Route path='/logout' element={<Logout />} />
           <Route element={<RootLayout />}>
             <Route path='/home' element={<Home />} />
-            <Route path='profile' element={<Profile/>}/>
-            <Route path='/search' element={<Search/>}/>
+            <Route path='profile' element={<Profile />} />
+            <Route path='/search' element={<Search />} />
             <Route path='watchlist' element={<Watchlist />} />
-            <Route path='movies' element={<Movies/>}/>
+            <Route path='movies' element={<Movies />} />
             <Route path='tvshows' element={<Tvshows />} />
             <Route path='moviedetails/:id' element={<MovieDetails />} />
           </Route>

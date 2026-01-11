@@ -27,18 +27,18 @@ const Home = () => {
   }, []);
 
 
-  if (loading) {
-    return (
-      <div className="bg-black text-white text-center pt-32">
-        Loading movies...
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="bg-black text-white text-center pt-32">
+  //       Loading movies...
+  //     </div>
+  //   );
+  // }
 
   const movie = trending[0]
   return (
 
-    <div className="bg-black min-h-screen border-2 border-gray-500 pt-18 text-white">
+    <div className="bg-black min-h-screenn border-2 border-gray-500 pt-18 text-white">
 
       {/*  TRENDING */}
 

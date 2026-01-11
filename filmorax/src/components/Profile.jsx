@@ -32,14 +32,16 @@ const Profile = () => {
     }
 
     return (
-        <div className="bg-fixed w-full min-h-screen pt-24 px-8 text-white items-center flex">
+        <div className="relative flex justify-center w-full min-h-screen pt-24 px-8 text-white items-center">
 
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg" alt="background" className='absolute inset-0 w-full h-full object-cover'/>
+            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg" alt="background" className='absolute inset-0 w-full h-full opacity-40 object-cover ' />
 
-            <div className="w-95 h-70 z-10 mx-auto bg-gray-900 p-4 rounded-lg ">
+            <div className='absolute inset-0 bg-black/70'></div>
 
-                <div className="flex items-center py-5 gap-4">
-                    <div className="w-16 h-16 rounded-full items-center bg-red-600 flex justify-center text-2xl font-bold">
+            <div className="relative z-10 w-full max-w-md rounded-md bg-white/5 backdrop-blur-xl border-white/10 shadow-2xl p-10">
+
+                <div className="flex items-center gap-5 mb-8">
+                    <div className="w-16 h-16 rounded-full items-center bg-yellow-500 flex justify-center text-white text-2xl font-bold shadow-lg">
                         {user.name.charAt(0)}
                     </div>
 
@@ -59,7 +61,7 @@ const Profile = () => {
 
                 <button
                     onClick={handleLogout}
-                    className="bg-red-600 w-full py-2 rounded hover:bg-red-700"
+                    className="bg-red-600 w-full py-2 rounded-xl hover:bg-red-700"
                 >
                     Logout
                 </button>
@@ -70,3 +72,4 @@ const Profile = () => {
 };
 
 export default Profile
+
