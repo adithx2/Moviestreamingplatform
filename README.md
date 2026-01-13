@@ -85,28 +85,17 @@ This application is fully responsive and tested on:
 
  // Installation
 
- Clone the repository
-
- git clone https://github.com/yourusername/your-repo-name.git
-
-
  Navigate to project directory
 
  cd your-repo-name
 
+ Install dependencies
 
-Install dependencies
+ npm install
 
-npm install
+ Start development server
 
-
-Start development server
-
-npm run dev
-
-Open in browser
-
-http://localhost:5173
+ npm run dev
 
 // Design Choices
 
