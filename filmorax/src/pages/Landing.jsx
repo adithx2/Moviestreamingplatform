@@ -17,7 +17,7 @@ const Landing = () => {
 
       <header className="fixed w-full top-0 left-0 items-center px-8 py-5 z-50">
 
-        <div className="flex justify-between items-center px-8 py-5">
+        <div className="flex justify-between items-center py-5">
           <h1 className="text-3xl font-bold text-white">
             Filmora<span className="text-yellow-500">X</span>
           </h1>
@@ -76,7 +76,7 @@ const Landing = () => {
           More reasons to join
         </h2>
 
-        <div className="flex gap-4 p-5 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5">
 
           <div className="relative rounded-2xl p-6 
       bg-linear-to-br from-[#1a1f3c] via-[#122f5e] to-black">
