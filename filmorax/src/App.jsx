@@ -10,8 +10,8 @@ import RootLayout from './layout/Rootlayout'
 import Landing from './pages/Landing'
 import Profile from './components/Profile'
 import Login from './components/Login'
-import Logout from './components/Logout'
-import Footer from './pages/Footer'
+import SignUp from './components/SignUp'
+import ProtectedRoute from './components/ProtectedRoute'
 
 
 const App = () => {
@@ -21,22 +21,63 @@ const App = () => {
       <BrowserRouter>
 
         <Routes>
+
           <Route path='/' element={<Landing />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/logout' element={<Logout />} />
+
           <Route element={<RootLayout />}>
-            <Route path='/home' element={<Home />} />
-            <Route path='profile' element={<Profile />} />
-            <Route path='/search' element={<Search />} />
-            <Route path='watchlist' element={<Watchlist />} />
-            <Route path='movies' element={<Movies />} />
-            <Route path='tvshows' element={<Tvshows />} />
-            <Route path='moviedetails/:id' element={<MovieDetails />} />
+
+            <Route path='/signup' element={<SignUp />} />
+
+            <Route path='/login' element={
+
+              <Login />
+
+            } />
+            <Route path='/home' element={
+
+              <ProtectedRoute>
+
+                <Home />
+
+              </ProtectedRoute>
+
+            } />
+            <Route path='/profile' element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            } />
+            <Route path='/search' element={
+
+              <ProtectedRoute>
+                <Search />
+
+              </ProtectedRoute>
+            } />
+            <Route path='/watchlist' element={
+              <ProtectedRoute>
+                <Watchlist />
+              </ProtectedRoute>
+            } />
+            <Route path='/movies' element={
+              <ProtectedRoute>
+                <Movies />
+              </ProtectedRoute>
+            } />
+            <Route path='/tvshows' element={
+              <ProtectedRoute>
+                <Tvshows />
+              </ProtectedRoute>
+            } />
+            <Route path='/moviedetails/:id' element={
+              <ProtectedRoute>
+                <MovieDetails />
+              </ProtectedRoute>
+            } />
           </Route>
 
         </Routes>
 
-        <Footer />
       </BrowserRouter>
 
     </div>

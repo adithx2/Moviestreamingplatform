@@ -1,15 +1,39 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Landing = () => {
+
   const navigate = useNavigate();
 
-  const handleSignIn = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    navigate("/Login");
-    
+    navigate("/login");
+
   };
+
+
+  const handleSign = (e) => {
+    e.preventDefault();
+
+    navigate("/signup");
+
+  };
+
+  useEffect(() => {
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    // user already logged in
+    
+    if (user) {
+      navigate("/home");
+    }
+
+  }, [navigate]);
+
+  
 
   return (
 
@@ -23,13 +47,13 @@ const Landing = () => {
           </h1>
 
           <div className="flex items-center gap-4">
-            <select className="text-white border-2 border-gray-400 bg-black/40 px-4 py-1 rounded ">
-              <option>English</option>
-              <option>Malayalam</option>
-            </select>
 
-            <button onClick={handleSignIn} className="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded">
-              Sign In
+            <button onClick={handleSign} className=" bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded">
+              Sign Up
+            </button>
+
+            <button onClick={handleLogin} className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded">
+              Login
             </button>
           </div>
         </div>
@@ -39,10 +63,11 @@ const Landing = () => {
 
         {/* Background image */}
 
-        <div className=" bg-fixed bg-no-repeat h-screen w-full overflow-hidden">
+        <div className="bg-fixed bg-no-repeat h-screen w-full overflow-hidden">
           <img
 
-            src="https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg"
+            // src="https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg"
+            src="https://assets.nflxext.com/ffe/siteui/vlv3/eb110559-67e9-40ec-8f1c-4a45b9f9c9bb/web/IN-en-20260309-TRIFECTA-perspective_6796824d-3538-42c9-95e0-baabc0fdbadf_large.jpg"
             alt="Background"
             className="absolute inset-0 w-full h-full object-cover"
 
@@ -116,6 +141,40 @@ const Landing = () => {
           </div>
 
         </div>
+      </div>
+
+      <div>
+        <footer className=" bg-black text-gray-400 px-5 py-5">
+          <div className="max-w-6xl mx-auto font-bold ">
+
+            <h1 className='text-white'>Filmora<span className='text-yellow-500'>X</span></h1>
+
+
+            {/* Footer Links */}
+
+            <div className="grid grid-cols-2 pt-5 md:grid-cols-4 gap-4 text-sm">
+              <p className="hover:underline cursor-pointer">Audio Description</p>
+              <p className="hover:underline cursor-pointer">Help Center</p>
+              <p className="hover:underline cursor-pointer">Gift Cards</p>
+              <p className="hover:underline cursor-pointer">Media Center</p>
+
+              <p className="hover:underline cursor-pointer">Investor Relations</p>
+              <p className="hover:underline cursor-pointer">Jobs</p>
+              <p className="hover:underline cursor-pointer">Terms of Use</p>
+              <p className="hover:underline cursor-pointer">Privacy</p>
+
+              <p className="hover:underline cursor-pointer">Legal Notices</p>
+              <p className="hover:underline cursor-pointer">Cookie Preferences</p>
+              <p className="hover:underline cursor-pointer">Corporate Information</p>
+              <p className="hover:underline cursor-pointer">Contact Us</p>
+            </div>
+
+            <p className="mt-8 text-xs text-gray-500">
+              © 2026 Filmorax. All rights reserved.
+            </p>
+
+          </div>
+        </footer>
       </div>
     </div>
 

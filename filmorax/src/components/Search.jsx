@@ -25,6 +25,8 @@ const Search = () => {
         console.error("Search error", err);
         setLoading(false);
       });
+
+
   }, [query]);
 
   return (
@@ -48,11 +50,11 @@ const Search = () => {
           >
             <img
               src={item.show.image?.medium}
-              alt={item.show.name}
+              alt={item.show.title}
               className="rounded hover:scale-105 transition duration-300"
             />
             <p className="text-sm mt-2 text-center text-gray-300">
-              {item.show.name}
+              {item.show.title}
             </p>
           </div>
         ))}

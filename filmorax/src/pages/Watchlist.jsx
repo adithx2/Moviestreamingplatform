@@ -1,26 +1,63 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
+import { deleteWatchlist, getWatchlist } from '../services/watchlistApi';
+
 
 const Watchlist = () => {
+
 
   const [watchlist, setWatchlist] = useState([]);
   const [searchTerm, setsearchTerm] = useState("")
   const navigate = useNavigate();
 
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("watchlist")) || [];
-    setWatchlist(saved);
+
+    // getWatchlist
+
+    const fetchWatchlist = async () => {
+
+      try {
+
+        const data = await getWatchlist()
+        setWatchlist(data)
+
+      } catch (error) {
+
+        console.log(error)
+        toast.error("Failed to load watchlist")
+
+      }
+
+    }
+
+    fetchWatchlist()
+
   }, []);
 
-  const removeFromWatchlist = (id) => {
-    const updated = watchlist.filter((movie) => movie.id !== id);
-    setWatchlist(updated);
-    localStorage.setItem("watchlist", JSON.stringify(updated));
+  // removeWatchlist
+
+  const removeFromWatchlist = async (id) => {
+
+    try {
+
+
+      await deleteWatchlist(id)
+
+      const update = watchlist.filter(movie => movie._id !== id)
+
+      setWatchlist(update);
+
+    } catch (error) {
+
+      console.log(error)
+
+    }
   };
 
   const filteredWatchlist = watchlist.filter((movie) =>
-    movie.name.toLowerCase().includes(searchTerm.toLowerCase())
+    movie.title?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (watchlist.length === 0) {
@@ -48,39 +85,37 @@ const Watchlist = () => {
         {filteredWatchlist.length === 0 && (
           <p className='text-center text-gray-400 mt-6'>No results found</p>
         )}
-      
+
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {filteredWatchlist.map((movie) => (
-            <div key={movie.id} className="relative">
+            <div key={movie._id} className="relative">
               <img
-                src={movie.image?.medium || movie.image?.original}
-                alt={movie.name}
+                src={movie.image}
+                alt={movie.title}
                 className="rounded cursor-pointer"
-                onClick={() => navigate(`/moviedetails/${movie.id}`)}
+                onClick={() => navigate(`/moviedetails/${movie.movieId}`)}
+                
               />
 
               <button
-                onClick={() => removeFromWatchlist(movie.id)} className='absolute top-2 right-2 bg-black/70 px-4 py-2 rounded text-xs hover:bg-red-600'
+                onClick={() => removeFromWatchlist(movie._id)} className='absolute top-2 right-2 bg-black/70 px-4 py-2 rounded text-xs hover:bg-red-600'
               >
-                x
+                X
               </button>
 
               <p className="text-sm text-center mt-2">
-                {movie.name}
+                {movie.title}
               </p>
             </div>
           ))}
         </div>
-         
 
       </div>
-        
-      </div>
 
-      
+    </div>
 
-      );
+  );
 };
 
 export default Watchlist

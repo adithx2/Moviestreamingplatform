@@ -1,17 +1,31 @@
 import React from 'react'
+import { toast } from 'react-toastify';
+import { createWatchlist } from '../services/watchlistApi';
 
-export const Addwatchlist = (movie) => {
+export const AddWatchlist = async (movie) => {
 
-    const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+    try {
 
-    const exists = watchlist.find((item) => item.id === movie.id);
+        const movieData = {
 
-    if (!exists) {
-        watchlist.push(movie);
-        localStorage.setItem("watchlist", JSON.stringify(watchlist));
-        alert("Added to Watchlist");
-    } else {
-        alert("Already in Watchlist");
+            movieId: movie.id,
+            title: movie.name,
+            genre: movie.genre,
+            image: movie.image?.medium || movie.image?.original
+
+        };
+
+        console.log(movieData)
+        await createWatchlist(movieData);
+
+        toast.success("Added to Watchlist");
+
+    } catch (error) {
+
+        console.log(error);
+
+        toast.error("Already in Watchlist");
+
     }
-}
 
+};
