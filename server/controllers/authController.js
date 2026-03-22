@@ -237,8 +237,8 @@ const login = async (req, res) => {
         const token = generateToken(payload)
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,  
-            sameSite: 'lax',
+            secure: true,  
+            sameSite: 'None',
         })
         res.status(200).json({
 
