@@ -59,7 +59,7 @@ const Profile = () => {
             localStorage.removeItem("user")
             localStorage.removeItem("token")
 
-            navigate("/login", { replace: true })
+            navigate("/", { replace: true })
 
         } catch (error) {
 
