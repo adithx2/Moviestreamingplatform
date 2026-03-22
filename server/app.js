@@ -33,7 +33,7 @@ app.use('/movies', movieRoutes)
 
 app.get('/', (req, res) => {
 
-    console.log('Hello world')
+    res.send("Hello world")
 })
 
 
