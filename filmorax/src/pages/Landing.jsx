@@ -26,14 +26,14 @@ const Landing = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     // user already logged in
-    
+
     if (user) {
       navigate("/home");
     }
 
   }, [navigate]);
 
-  
+
 
   return (
 
@@ -66,7 +66,6 @@ const Landing = () => {
         <div className="bg-fixed bg-no-repeat h-screen w-full overflow-hidden">
           <img
 
-            // src="https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_large.jpg"
             src="https://assets.nflxext.com/ffe/siteui/vlv3/eb110559-67e9-40ec-8f1c-4a45b9f9c9bb/web/IN-en-20260309-TRIFECTA-perspective_6796824d-3538-42c9-95e0-baabc0fdbadf_large.jpg"
             alt="Background"
             className="absolute inset-0 w-full h-full object-cover"
@@ -80,7 +79,7 @@ const Landing = () => {
           <div className="relative z-10 flex flex-col justify-center items-center text-white max-w-full h-full px-4">
 
             <h1 className="text-white text-4xl md:text-5xl font-bold text-center">
-              Unlimited movies, shows <br />Your favorite stories start here.
+              Unlimited movies, Shows <br />Your favorite stories start here.
             </h1>
 
             <Link to="/login" className="p-8">

@@ -38,7 +38,6 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [trending]);
 
-
   useEffect(() => {
     fetchAI();
     setLoading(false)
@@ -52,17 +51,23 @@ const Home = () => {
       console.log(data)
     } catch (error) {
       console.log(error);
-      setLoading(false)
     }
+
+    setLoading(false)
+
+  };
 
     if (loading) {
       return (
-        <div className="bg-black h-screen text-white text-center pt-32">
-          Loading...
+        <div className="bg-black h-screen flex items-center justify-center">
+          <h1 className="text-white text-2xl animate-pulse">
+            Loading Movies...
+          </h1>
         </div>
       );
+
     }
-  };
+  
 
   const movie = trending[currentIndex]
 
@@ -83,7 +88,7 @@ const Home = () => {
         >
           <div className="absolute inset-0 bg-linear-to-r from-black via-black-40 to-transparent"></div>
 
-          <h1 className="relative z-10 text-2xl font-bold px-10 pt-10 text-white">
+          <h1 className="relative z-10 text-4xl font-bold px-10 pt-10 text-white">
             Trending Movies
           </h1>
 
