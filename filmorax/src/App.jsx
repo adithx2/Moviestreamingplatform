@@ -11,6 +11,7 @@ import Landing from './pages/Landing'
 import Profile from './components/Profile'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
+import Admin from './components/Admin'
 import ProtectedRoute from './components/ProtectedRoute'
 
 
@@ -33,6 +34,7 @@ const App = () => {
               <Login />
 
             } />
+
             <Route path='/home' element={
 
               <ProtectedRoute>
@@ -42,11 +44,24 @@ const App = () => {
               </ProtectedRoute>
 
             } />
+
+
+            <Route path='/admin' element={
+
+              <ProtectedRoute>
+
+                <Admin />
+
+              </ProtectedRoute>
+
+            } />
+
             <Route path='/profile' element={
               <ProtectedRoute>
                 <Profile />
               </ProtectedRoute>
             } />
+
             <Route path='/search' element={
 
               <ProtectedRoute>

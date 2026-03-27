@@ -37,7 +37,7 @@ const SignUp = () => {
     } catch (error) {
 
       console.log(error)
-      setError(err.response?.data?.message || "Signup failed");
+      setError(error.response?.data?.message || "Signup failed");
 
       toast.error("Signup failed")
     }

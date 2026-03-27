@@ -8,7 +8,7 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [genre, setGenre] = useState('All')
   const [filteredMovies, setFilteredMovies] = useState([])
-  
+
   useEffect(() => {
 
     const fetchMovies = async () => {

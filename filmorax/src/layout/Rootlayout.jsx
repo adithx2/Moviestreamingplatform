@@ -6,11 +6,17 @@ const RootLayout = () => {
 
     <>
 
+    <div className='flex flex-col min-h-screen bg-black text-white'>
       <Navbar />
 
+      <div className='flex-1'>
       <Outlet />
+      </div>
 
-      <Footer/>
+
+      <Footer />
+
+      </div>
 
     </>
 
@@ -18,3 +24,4 @@ const RootLayout = () => {
 }
 
 export default RootLayout
+

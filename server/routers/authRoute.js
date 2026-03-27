@@ -1,10 +1,10 @@
 const express = require('express')
-const  validateToken  = require('../middileware/authMiddileware')
+const { validateToken, admin } = require('../middileware/authMiddileware')
 const userRoutes = express.Router()
 
-const { getUsers, createUsers, login, checkUser, userID, deleteUser, logout , updateUser } = require('../controllers/authController')
+const { getUsers, createUsers, login, checkUser, userID, deleteUser, logout, updateUser } = require('../controllers/authController')
 
-userRoutes.get('/', getUsers)
+userRoutes.get('/', validateToken , admin, getUsers)
 
 userRoutes.post('/register', createUsers)
 
@@ -12,7 +12,7 @@ userRoutes.post('/login', login)
 
 userRoutes.get('/checkUser', validateToken, checkUser)
 
-userRoutes.get('/:id', userID)
+userRoutes.get('/:id', admin , userID)
 
 userRoutes.post('/logout', logout)
 

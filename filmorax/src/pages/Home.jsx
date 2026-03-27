@@ -41,6 +41,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchAI();
+    setLoading(false)
 
   }, []);
 
@@ -53,17 +54,18 @@ const Home = () => {
       console.log(error);
       setLoading(false)
     }
+
+    if (loading) {
+      return (
+        <div className="bg-black h-screen text-white text-center pt-32">
+          Loading...
+        </div>
+      );
+    }
   };
 
-  if (loading) {
-    return (
-      <div className="bg-black h-screen text-white text-center pt-32">
-        Loading...
-      </div>
-    );
-  }
-
   const movie = trending[currentIndex]
+
 
   return (
 
@@ -146,7 +148,6 @@ const Home = () => {
       <h2 className=" text-white text-2xl px-8 font-bold py-4 mb-4">
         Recommended For you
       </h2>
-
 
       <div className="grid grid-cols-2 p-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 min-h-screen gap-4">
         {aiMovies.map((show) => (

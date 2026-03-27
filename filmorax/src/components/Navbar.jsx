@@ -10,11 +10,10 @@ const Navbar = () => {
   const [click, setClick] = useState("");
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  
+
   const navigate = useNavigate();
 
   const location = useLocation()
-
 
   useEffect(() => {
 
@@ -25,6 +24,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
 
   }, []);
+
 
   if (location.pathname === "/login" || location.pathname === "/signup") {
 
@@ -100,18 +100,24 @@ const Navbar = () => {
 
         </div>
 
-        <div className="flex  items-center">
+        <div className="flex items-center">
+          <FaUserCircle
+            size={28}
+            className="cursor-pointer"
+            onClick={() => {
+              const user = JSON.parse(localStorage.getItem("user"));
 
-
-          <FaUserCircle size={28} className="cursor-pointer" onClick={() => {
-            navigate("/profile")
-            setMenuOpen(false)
-          }}
-
+              if (!user) {
+                navigate("/login");
+              } else if (user.role === "admin") {
+                navigate("/admin");
+              } else {
+                navigate(`/profile`);
+              }
+            }}
           />
-
-
         </div>
+
 
         {/* Mobile Hamburger */}
 

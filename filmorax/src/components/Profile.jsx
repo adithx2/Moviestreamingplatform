@@ -9,11 +9,11 @@ const Profile = () => {
 
     const [user, setUser] = useState(null)
     const [watchlistCount, setWatchlistCount] = useState(0)
-
     const [showModal, setShowModal] = useState(false)
-
     const [editMode, setEditMode] = useState(false)
     const [newName, setNewName] = useState("")
+    const [loading, setLoading] = useState(true)
+
 
     const navigate = useNavigate()
 
@@ -26,8 +26,14 @@ const Profile = () => {
             return
         }
 
+        if (savedUser?.role === "admin") {
+            navigate("/admin");
+            return
+        }
+
         setUser(savedUser)
         fetchWatchlist()
+        setLoading(false)
 
     }, [])
 
@@ -97,6 +103,16 @@ const Profile = () => {
 
             console.log(error)
 
+        }
+
+        if (loading) {
+
+            return (
+
+                <div className='min-h-screen flex items-center justify-center bg-black text-white'>
+                    Loading...
+                </div>
+            )
         }
 
     }

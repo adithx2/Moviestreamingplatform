@@ -235,11 +235,13 @@ const login = async (req, res) => {
         let payload = { id: user._id, name: user.name, email: user.email, role: user.role }
 
         const token = generateToken(payload)
+
         res.cookie("token", token, {
             httpOnly: true,
-            secure: true,  
-            sameSite: 'None',
+            secure: false,
+            sameSite: 'Lax',
         })
+
         res.status(200).json({
 
             message: "Login successfull",

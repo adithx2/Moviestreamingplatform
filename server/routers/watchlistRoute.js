@@ -1,7 +1,7 @@
 const express = require('express')
 const watchlistRouter = express.Router()
 const { getWatchlist, createWatchlist, watchlistID, deleteWatchlist, updateWatchlist } = require('../controllers/watchlistControllers')
-const validateToken = require('../middileware/authMiddileware')
+const {validateToken} = require('../middileware/authMiddileware')
 
 watchlistRouter.get('/', validateToken, getWatchlist)
 

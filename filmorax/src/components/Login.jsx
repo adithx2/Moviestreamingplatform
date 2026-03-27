@@ -30,14 +30,17 @@ const Login = () => {
       console.log(res)
 
       toast.success("Login successful")
-      navigate("/home")
+
+      if (res.user.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/home");
+      }
 
       // user data save
 
       localStorage.setItem("user", JSON.stringify(res.user))
       localStorage.setItem("token", res.token);
-
-
 
     } catch (error) {
 
