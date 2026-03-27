@@ -232,8 +232,7 @@ const getTrendingMovies = async (req, res) => {
 
       {
         id: 1,
-        title: "Trending Movies",
-        name: "Lokah",
+        title: "Lokah",
         rating: { average: 7.6 },
         premiered: "2025",
         genres: ["superhero, fantasy, action"],
@@ -247,8 +246,7 @@ const getTrendingMovies = async (req, res) => {
       },
       {
         id: 2,
-        title: "Trending Movies",
-        name: "Dhurandar",
+        title: "Dhurandar",
         rating: { average: 8.3 },
         premiered: "2025",
         genres: ["Spy action-thriller"],
@@ -262,8 +260,7 @@ const getTrendingMovies = async (req, res) => {
 
       {
         id: 3,
-        title: "Trending Movies",
-        name: "Mission Impossible The Final Reckoning",
+        title: "Mission Impossible The Final Reckoning",
         rating: { average: 8.8 },
         premiered: "2025",
         genres: ["superhero, fantasy, action"],
@@ -277,8 +274,7 @@ const getTrendingMovies = async (req, res) => {
 
       {
         id: 4,
-        title: "Trending Movies",
-        name: "Stranger things season 5",
+        title: "Stranger things season 5",
         rating: { average: 8.6 },
         premiered: "2025",
         genres: ["horror, fantasy, action"],
@@ -292,8 +288,7 @@ const getTrendingMovies = async (req, res) => {
 
       {
         id: 5,
-        title: "Trending Movies",
-        name: "Sarvam maya",
+        title: "Sarvam maya",
         rating: { average: 7.7 },
         premiered: "2025",
         genres: ["supernatural romantic comedy and fantasy"],
