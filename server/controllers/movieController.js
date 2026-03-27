@@ -193,7 +193,6 @@ const getAIRecommendations = async (req, res) => {
   }
 }
 
-
 // movieId
 
 const getMovieId = async (req, res) => {
