@@ -43,3 +43,9 @@ export const loginUser = async (data) => {
     const response = await apiClient.post("/users/login", data)
     return response.data
 }
+
+export const logout = async (data) => {
+
+    const response = await apiClient.post("/users/logout", data)
+    return response.data
+}

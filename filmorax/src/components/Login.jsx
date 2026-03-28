@@ -32,7 +32,7 @@ const Login = () => {
       toast.success("Login successful")
 
       if (res.user.role === "admin") {
-        navigate("/admin");
+        navigate("/home");
       } else {
         navigate("/home");
       }
