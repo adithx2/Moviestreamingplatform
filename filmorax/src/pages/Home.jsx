@@ -98,7 +98,7 @@ const Home = () => {
           <div className="relative z-10 h-full flex items-center px-10">
             <div className="max-w-xl text-white">
               <h1 className="text-5xl font-extrabold mb-4">
-                {movie.name}
+                {movie.title}
               </h1>
 
               <p className="text-sm text-gray-300 mb-4">
@@ -125,7 +125,7 @@ const Home = () => {
 
 
                 <button
-                  onClick={() => navigate(`/moviedetails/${movie.name.toLowerCase().replace(/\s/g, "")}`)}
+                  onClick={() => navigate(`/moviedetails/${movie.title.toLowerCase().replace(/\s/g, "")}`)}
                   className="bg-gray-700 px-6 py-2 rounded font-semibold hover:bg-gray-600"
                 >
                   More Info
@@ -162,7 +162,7 @@ const Home = () => {
             onClick={() => navigate(`/moviedetails/${show.id}`)}
           >
             <img
-              src={show.image?.medium}
+              src={show.image?.medium }
               alt={show.title}
               className="rounded hover:scale-105 transition duration-300"
             />

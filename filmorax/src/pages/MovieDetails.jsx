@@ -8,6 +8,7 @@ import { AddWatchlist } from "../components/Addwatchlist";
 import { toast } from "react-toastify";
 
 const MovieDetails = () => {
+
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -29,10 +30,11 @@ const MovieDetails = () => {
 
         const localMovie = trending.find(
 
-          (m) => m.name.toLowerCase().replace(/\s/g, "") === id.toLowerCase()
+          (m) => m.title.toLowerCase().replace(/\s/g, "") === id.toLowerCase()
         );
 
         if (localMovie) {
+
           setMovie(localMovie);
           setLoading(false);
           return

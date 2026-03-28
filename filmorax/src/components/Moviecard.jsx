@@ -11,7 +11,7 @@ const MovieCard = ({ movie }) => {
     >
       <img
         src={
-          movie.image?.medium
+          movie.image?.medium || movie.image?.original
           
         }
         alt={movie.name}

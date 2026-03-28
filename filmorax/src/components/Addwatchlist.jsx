@@ -11,7 +11,7 @@ export const AddWatchlist = async (movie) => {
             movieId: movie.id,
             title: movie.name,
             genre: movie.genre,
-            image: movie.image?.medium || movie.image?.original
+            image: movie.image?.medium ||  movie.image?.original
 
         };
 

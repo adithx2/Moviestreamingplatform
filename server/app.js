@@ -14,32 +14,32 @@ const app = express()
 app.use(cookieParser())
 app.use(express.json())
 
-const frontend_url = process.env.FRONTEND_URL
+// const frontend_url = process.env.FRONTEND_URL
 
-
-app.use(cors({
-
-    origin: frontend_url,
-    credentials: true
-
-}))
-
-
-// const allowedOrigins = [
-//   "http://localhost:5173",
-//   "https://moviestreamingplatform-lps9.vercel.app"
-// ];
 
 // app.use(cors({
-//   origin: function (origin, callback) {
-//     if (!origin) return callback(null, true);
-//     if (allowedOrigins.indexOf(origin) === -1) {
-//       return callback(null, false);
-//     }
-//     return callback(null, true);
-//   },
-//   credentials: true
-// }));
+
+//     origin: frontend_url,
+//     credentials: true
+
+// }))
+
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://moviestreamingplatform-lps9.vercel.app"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      return callback(null, false);
+    }
+    return callback(null, true);
+  },
+  credentials: true
+}));
 
 app.use('/users', userRoutes)
 
