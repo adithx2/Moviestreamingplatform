@@ -57,17 +57,17 @@ const Home = () => {
 
   };
 
-    if (loading) {
-      return (
-        <div className="bg-black h-screen flex items-center justify-center">
-          <h1 className="text-white text-2xl animate-pulse">
-            Loading Movies...
-          </h1>
-        </div>
-      );
+  if (loading) {
+    return (
+      <div className="bg-black h-screen flex items-center justify-center">
+        <h1 className="text-white text-2xl animate-pulse">
+          Loading Movies...
+        </h1>
+      </div>
+    );
 
-    }
-  
+  }
+
 
   const movie = trending[currentIndex]
 
@@ -162,7 +162,7 @@ const Home = () => {
             onClick={() => navigate(`/moviedetails/${show.id}`)}
           >
             <img
-              src={show.image?.medium }
+              src={show.image?.medium}
               alt={show.title}
               className="rounded hover:scale-105 transition duration-300"
             />
@@ -175,10 +175,14 @@ const Home = () => {
 
         ))}
       </div>
+
+
     </div>
+
+
   );
 
-};
+}
 
 export default Home;
 
