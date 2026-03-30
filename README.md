@@ -1,195 +1,110 @@
-# 🎬 FilmoraX - High-Performance Streaming Dashboard
-
-**FilmoraX** is a Netflix-inspired movie streaming platform designed with a focus on premium User Experience (UX), secure administrative workflows, and efficient state management. Built with **React 19** and **Vite**, it leverages modern frontend patterns to provide a seamless cinematic interface.
-
-
-
-## Live Demo : moviestreamingplatform-lps9.vercel.app
+This is the final, comprehensive **README.md** precisely mapped to your project's folder structure. It clearly separates the **Frontend (filmorax)** from the **Backend (server)**, creating a highly professional presentation for your Capstone Project.
 
 -----
 
+# 🎬 FilmoraX - Full-Stack Movie Streaming Ecosystem
 
-##  Features & Functionality
+**FilmoraX** is a Netflix-inspired streaming platform designed with a focus on cinematic User Experience (UX), secure administrative workflows, and efficient state management. Built as a **Capstone Project**, it demonstrates proficiency in the MERN ecosystem (MongoDB, Express, React, Node.js).
 
+## 🔗 Live Demo: moviestreamingplatform-lps9.vercel.app
 
-  * **Dynamic Discovery:** Real-time data synchronization with the **TVMaze API** for trending movies and TV shows.
-
-  * **Intelligent Search:** Client-side filtering and query-string based search logic for instant results.
-
-  * **Watchlist Management:** A persistent user-specific watchlist using `localStorage` and a dedicated API service.
-
-  * **Premium Visuals:** Glassmorphism navigation, hero banners, and high-fidelity movie detail pages with blurred backdrop filters.
-
-
-
-###  Administration & Security
-
-
-
-  * **Role-Based Access Control (RBAC):** Protected routes using a `ProtectedRoute` component that validates user roles before granting access to sensitive views.
-
-  * **Admin Console:** A comprehensive dashboard featuring:
-
-      * **Real-time Stats:** Visual counters for Users, Movies, and Watchlists.
-
-      * **Inventory Management:** Full CRUD (Create, Read, Update, Delete) capabilities for the movie library.
-
-      * **User Auditing:** A tabulated view of registered users and their credentials.
-
+## 🔗 Github Repo: https://github.com/adithx2/Moviestreamingplatform
 
 
 -----
 
+## 🚀 Key Features
 
-
-## 🛠 Technical Architecture
-
-
-
-### Frontend Stack
-
-
-
-  * **Framework:** React 19 (Functional Components & Hooks)
-
-  * **Routing:** React Router DOM v7 (Nested layouts & Protected routes)
-
-  * **Styling:** Tailwind CSS 4 (Utility-first, responsive grid system)
-
-  * **Animations:** Framer Motion for smooth transitions
-
-  * **State Persistence:** Synchronized `localStorage` for authentication tokens and user sessions.
-
-
-
-### API Integration Logic
-
-
-
-The application follows a modular service-oriented architecture:
-
-
-
-  * `usersApi.js`: Handles authentication logic (Login/Logout/Signup).
-
-  * `movies.js`: Manages content retrieval and administrative CRUD operations.
-
-  * `watchlistApi.js`: Interfaces with the watchlist database/storage.
-
-
+  * **Cinematic Discovery:** Integration with the **TVMaze API** for real-time trending content.
+  * **Persistent Watchlist:** Full CRUD operations for user-specific movie lists, synced across devices via the backend.
+  * **Role-Based Access Control (RBAC):** Secure `ProtectedRoute` logic segregating standard users from the Administrative dashboard.
+  * **Admin Command Center:** High-level dashboard for managing the global movie catalog, viewing user statistics, and auditing data.
+  * **Advanced Search:** Query-based filtering for movies and TV shows with instant UI updates.
 
 -----
 
+## 🏗️ System Architecture
 
+### 🎨 Frontend (filmorax/)
+
+  * **Framework:** React 19 + Vite (for high-speed development and HMR).
+  * **Routing:** React Router DOM v7 (Nested layouts and authentication guards).
+  * **Styling:** Tailwind CSS 4 + Framer Motion (for smooth transitions and glassmorphism).
+  * **API Layer:** Modular Axios configuration with centralized service files.
+
+### ⚙️ Backend (server/)
+
+  * **Runtime:** Node.js & Express.js.
+  * **Database:** MongoDB with Mongoose (Schema-driven data modeling).
+  * **Security:** JWT-based authentication (JSON Web Tokens) with custom middleware.
+  * **Controllers:** Decoupled logic for Auth, Movies, Ratings, and Watchlists.
+
+-----
 
 ## 📂 Directory Structure
 
-
-
 ```text
-
-filmorax/
-
-├── src/
-
-│   ├── components/       # UI Components (Admin, Navbar, MovieCard, Search)
-
-│   ├── layout/           # RootLayout for shared UI state
-
-│   ├── pages/            # View-level components (Home, MovieDetails, Watchlist)
-
-│   ├── services/         # API abstraction layer (Axios instances)
-
-│   ├── App.jsx           # Route definitions & Protected Route wrapping
-
-│   └── main.jsx          # Entry point & Toast notification provider
-
-├── public/               # Static assets
-
-└── tailwind.config.js    # Design system configuration
-
+adithx2-moviestreamingplatform/
+├── filmorax/                # FRONTEND (React)
+│   ├── src/
+│   │   ├── components/      # UI: Admin, Navbar, MovieCard, Search, ProtectedRoute
+│   │   ├── pages/           # Views: Home, MovieDetails, Landing, Watchlist
+│   │   ├── services/        # API calls: usersApi.js, movies.js, watchlistApi.js
+│   │   ├── layout/          # RootLayout for consistent branding
+│   │   └── App.jsx          # Centralized Route Management
+│   └── vite.config.js       # Build Configuration
+└── server/                  # BACKEND (Node.js/Express)
+    ├── config/              # Database connection (db.js)
+    ├── controllers/         # Logic for Auth, Movies, Ratings, Watchlist
+    ├── middileware/         # JWT Verification (authMiddileware.js)
+    ├── models/              # Schemas: User, Movie, Watchlist, Rating
+    ├── routers/             # API Endpoints mapping
+    └── utils/               # Helpers: generateToken.js
 ```
 
-
-
 -----
 
+## 🛠️ Installation & Setup
 
-
-## 🔧 Installation & Deployment
-
-
-
-1.  **Clone & Enter Directory:**
+1.  **Setup Backend:**
 
     ```bash
-
-    git clone https://github.com/your-username/filmorax.git
-
-    cd filmorax
-
-    ```
-
-2.  **Environment Setup:**
-
-    Create a `.env` file in the root directory for any API base URLs.
-
-3.  **Install Dependencies:**
-
-    ```bash
-
+    cd server
     npm install
-
+    # Create .env with MONGODB_URI, JWT_SECRET, and PORT
+    npm start
     ```
 
-4.  **Local Development:**
+2.  **Setup Frontend:**
 
     ```bash
-
+    cd ../filmorax
+    npm install
     npm run dev
-
     ```
-
-5.  **Production Build:**
-
-    ```bash
-
-    npm run build
-
-    ```
-
-
 
 -----
 
+## 🎓 Capstone Project Conclusion
 
+**FilmoraX** marks a transition from foundational coding to professional software engineering. It successfully bridges a high-fidelity frontend with a robust, secured backend.
 
+### 💡 Key Technical Milestones:
 
-
-
-
-### 📜 License
-
-
-
-This project is for educational purposes. All movie data and images are provided by the TVMaze API.
-
-
+  * **State & Data Sync:** Mastered the synchronization between external API data (TVMaze) and persistent MongoDB storage.
+  * **Security Architecture:** Implemented an end-to-end authentication flow using JWT, from server-side token generation to client-side interceptors.
+  * **Defensive UI Development:** Resolved complex rendering conflicts (e.g., Object-to-Child errors) to ensure a crash-resistant user interface.
+  * **Modular Scalability:** Organized the project into clear service layers, ensuring the platform is ready for future features like AI-based recommendations or YouTube trailer integration.
 
 -----
-
-
 
 ##  Author
 
-
-
 **Adith**
 
-   // GitHub:(https://github.com/adithx2/   Moviestreamingplatform)
+  * **GitHub:** https://github.com/adithx2/Moviestreamingplatform
 
-  //Email:** adiths746@gmail.com
-
+  * **Email:** adiths746@gmail.com
 
 
 FilmoraX is a professional-grade Capstone Project designed to bridge the gap between frontend aesthetics and complex data management. By integrating a high-fidelity Netflix-style UI with a secure Administrative Dashboard, this project demonstrates a mastery of the modern React ecosystem.
