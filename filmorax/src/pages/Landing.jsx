@@ -260,10 +260,10 @@ const Landing = () => {
           variants={fadeInUp}
           className="relative z-10 flex flex-col justify-center items-center text-center px-4"
         >
-          <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-white text-5xl md:text-5xl font-bold mb-5">
             Unlimited movies, Shows <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-yellow-400 to-yellow-600">
-              Your stories start here.
+              Your Favorite stories start here.
             </span>
           </h1>
 

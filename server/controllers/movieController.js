@@ -6,7 +6,11 @@ const tf = require('@tensorflow/tfjs')
 const Movie = require('../models/Movie')
 const { trainModel } = require('../models/ai')
 
-// Recommended Movies 
+// const apiKey = '3fde8b43eff1bca041b1dcc05897b78b'
+
+// const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`
+
+// // Recommended Movies 
 
 const getRecommendedMovies = async (req, res) => {
 
@@ -35,23 +39,19 @@ const getRecommendedMovies = async (req, res) => {
 
   }
 
-};
+}
 
 const createMovie = async (req, res) => {
+
   try {
+
     const { title, image, rating, year, genres } = req.body;
 
     if (!title || !image || !rating || !year) {
       return res.status(400).json({ message: "All fields required" });
     }
 
-    const movie = new Movie({
-      title,
-      image,
-      rating,
-      year,
-      genres
-    });
+    const movie = new Movie({ title, image, rating, year, genres });
 
     await movie.save();
     res.json(movie);
@@ -62,7 +62,9 @@ const createMovie = async (req, res) => {
 };
 
 const updateMovie = async (req, res) => {
+
   try {
+
     const updatedMovie = await Movie.findByIdAndUpdate(
       req.params.id,
       {

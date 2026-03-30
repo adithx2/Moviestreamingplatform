@@ -25,6 +25,16 @@ const App = () => {
 
           <Route path='/' element={<Landing />} />
 
+          <Route path='/admin' element={
+
+              <ProtectedRoute>
+
+                <Admin />
+
+              </ProtectedRoute>
+
+            } />
+
           <Route element={<RootLayout />}>
 
             <Route path='/signup' element={<SignUp />} />
@@ -45,16 +55,6 @@ const App = () => {
 
             } />
 
-
-            <Route path='/admin' element={
-
-              <ProtectedRoute>
-
-                <Admin />
-
-              </ProtectedRoute>
-
-            } />
 
             <Route path='/profile' element={
               <ProtectedRoute>

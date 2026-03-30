@@ -251,7 +251,7 @@ const login = async (req, res) => {
 
     } catch (error) {
 
-        console.log(error)
+        console.log("Error details:", error)
         res.status(500).json({
 
             error: error.message

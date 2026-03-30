@@ -98,6 +98,7 @@ const Navbar = () => {
             </form>
           )}
 
+
         </div>
 
         <div className="flex items-center">
