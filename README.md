@@ -2,7 +2,7 @@
 
 **FilmoraX** is a Netflix-inspired streaming platform designed with a focus on cinematic User Experience (UX), secure administrative workflows, and efficient state management. Built as a **Capstone Project**, it demonstrates proficiency in the MERN ecosystem (MongoDB, Express, React, Node.js).
 
-## 🔗 Live Demo: moviestreamingplatform-lps9.vercel.app
+## 🔗 Live Demo: https://moviestreamingplatform-lps9.vercel.app/
 
 ## 🔗 Github Repo: https://github.com/adithx2/Moviestreamingplatform
 
