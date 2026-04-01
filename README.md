@@ -1,7 +1,3 @@
-This is the final, comprehensive **README.md** precisely mapped to your project's folder structure. It clearly separates the **Frontend (filmorax)** from the **Backend (server)**, creating a highly professional presentation for your Capstone Project.
-
------
-
 # 🎬 FilmoraX - Full-Stack Movie Streaming Ecosystem
 
 **FilmoraX** is a Netflix-inspired streaming platform designed with a focus on cinematic User Experience (UX), secure administrative workflows, and efficient state management. Built as a **Capstone Project**, it demonstrates proficiency in the MERN ecosystem (MongoDB, Express, React, Node.js).

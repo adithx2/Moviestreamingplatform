@@ -35,7 +35,7 @@ const ProtectedRoute = ({ children, admin = false }) => {
     }
 
     if (isAuthentication === null) {
-        return <p>Checking Authentication...</p>
+        return null
 
     }
 

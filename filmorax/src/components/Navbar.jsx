@@ -44,8 +44,7 @@ const Navbar = () => {
   return (
     <div>
 
-      <nav className={`fixed top-0 left-0 w-full h-18 z-50 text-white px-6 py-4 flex items-center justify-between transition-colors duration-300 ${scrolled ? "bg-black/2 backrop-blur-md" : "bg-black/70 backdrop-blur-md"
-        }`}
+      <nav className={`fixed top-0 left-0 w-full h-18 z-50 text-white px-6 py-4 flex items-center justify-between transition-colors duration-300 ${scrolled ? "bg-black/2 backdop-blur-md" : "bg-black/2 backrop-blur-md"}`}
       >
         {/* Logo */}
 
@@ -128,7 +127,7 @@ const Navbar = () => {
       </nav>
 
       {menuOpen && (
-        <div className={`fixed top-14 left-0 w-full bg-black text-white z-40 flex flex-col justify-between gap-6 py-6 md:hidden transition-colors duration-300 ${scrolled ? "bg-black/2 backrop-blur-md" : "bg-black/70 backdrop-blur-md"
+        <div className={`fixed top-14 left-0 w-full bg-black text-white z-40 flex flex-col justify-between gap-6 py-6 md:hidden transition-colors duration-300 ${scrolled ? "bg-black/2 backdop-blur-md" : "bg-black/2 backdop-blur-md"
 
           }`}
 

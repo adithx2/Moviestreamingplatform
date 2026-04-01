@@ -7,11 +7,14 @@ const Movies = () => {
 
   const [movies, setMovies] = useState([]);
   const [genre, setGenre] = useState('All')
+  const [loading, setLoading] = useState(true)
   const [filteredMovies, setFilteredMovies] = useState([])
 
   useEffect(() => {
 
     const fetchMovies = async () => {
+
+      setLoading(true)
 
       try {
 
@@ -26,9 +29,12 @@ const Movies = () => {
         console.log(error)
 
       }
+
     }
 
     fetchMovies()
+
+    setLoading(false)
   }, []);
 
   const filterGenre = (g) => {
@@ -46,6 +52,13 @@ const Movies = () => {
       setFilteredMovies(filtered);
     }
   };
+
+  if (loading) return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-yellow-500">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-yellow-500 mb-4"></div>
+      <p className="font-medium">Loading Movies...</p>
+    </div>
+  );
 
   return (
     <div className="bg-black p-4 min-h-screen pt-24 px-6 text-white">

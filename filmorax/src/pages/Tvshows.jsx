@@ -2,16 +2,20 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TvShowCard from "../components/TvShowCard";
 import { recommendedMovies } from "../data/movies";
+import { FaLaptopHouse } from "react-icons/fa";
 const TvShows = () => {
 
   const [shows, setShows] = useState([]);
   const [genres, setGenres] = useState([])
   const [genre, setGenre] = useState("All")
+  const [loading, setLoading] = useState(true)
   const [filteredShows, setFilteredShows] = useState([])
 
   useEffect(() => {
 
     const fetchTvshows = async () => {
+
+      setLoading(true)
 
       try {
 
@@ -33,6 +37,8 @@ const TvShows = () => {
 
     fetchTvshows()
 
+    setLoading(false)
+
   }, []);
 
   const filterGenre = (g) => {
@@ -49,6 +55,14 @@ const TvShows = () => {
 
     setFilteredShows(filtered);
   };
+
+
+  if (loading) return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-yellow-500">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-yellow-500 mb-4"></div>
+      <p className="font-medium">Loading Movies...</p>
+    </div>
+  );
 
 
   return (

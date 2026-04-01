@@ -116,7 +116,7 @@ const Admin = () => {
   );
 
   return (
-    <div className="flex bg-[#0f0f0f] min-h-screen text-gray-200 font-sans">
+    <div className="flex bg-[#0f0f0f] min-h-screen w-full text-gray-200 font-sans">
 
       {/* Sidebar */}
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 border-r border-gray-800 transition-transform duration-300 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
