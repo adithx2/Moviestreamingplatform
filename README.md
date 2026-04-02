@@ -1,6 +1,6 @@
 # 🎬 FilmoraX - Full-Stack Movie Streaming Platform
 
-**FilmoraX** is a Netflix-inspired streaming platform designed with a focus on cinematic User Experience (UX), secure administrative workflows, and intelligent content discovery. Built as a **Capstone Project**, it demonstrates proficiency in the MERN ecosystem (MongoDB, Express, React, Node.js).
+**FilmoraX** is a Netflix-inspired streaming platform designed with a focus on cinematic User Experience (UX), secure administrative workflows, and intelligent content discovery. Built as a **Capstone Project**, it demonstrates proficiency in the MERN STACK (MongoDB, Express, React, Node.jS).
 
 ## 🔗 Live Demo: https://moviestreamingplatform-lps9.vercel.app/
 
@@ -16,12 +16,6 @@
   * **Admin Command Center:** High-level dashboard for managing the global movie catalog, viewing user statistics, and auditing system data.
 
 -----
-
-To make the **FilmoraX** README truly professional, adding a visual representation of the repository's architecture is key. This helps other developers (and recruiters) quickly understand your project's modularity.
-
-Insert this **Directory Structure** section right after the **System Architecture** section in your `README.md`:
-
----
 
 ## 📂 Directory Structure
 
