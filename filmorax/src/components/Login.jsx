@@ -14,7 +14,7 @@ const Login = () => {
   const handleLogin = async (e) => {
 
     e.preventDefault()
-    
+
     setError('')
 
     try {
@@ -97,6 +97,17 @@ const Login = () => {
         >
           Login
         </button>
+
+
+        <div className="flex justify-end mb-4">
+          <button
+            type="button"
+            onClick={() => navigate("/forgot-password")}
+            className="text-sm p-2  text-blue-400 hover:underline"
+          >
+            Forgot Password
+          </button>
+        </div>
 
         <p className="text-center mt-4">
           Don't have an account?

@@ -20,7 +20,7 @@ const Movies = () => {
 
         const res = await recommendedMovies()
         console.log(res)
-        const movieLike = res.filter(item => item.image).slice(1, 80);
+        const movieLike = res.filter(item => item.image).slice(0, 80);
         setFilteredMovies(movieLike)
         setMovies(movieLike);
 

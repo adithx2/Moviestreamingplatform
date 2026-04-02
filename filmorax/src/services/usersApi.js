@@ -49,3 +49,14 @@ export const logout = async (data) => {
     const response = await apiClient.post("/users/logout", data)
     return response.data
 }
+
+export const forgotPassword = async (data) => {
+    const response = await apiClient.post("/users/forgot-password", data)
+    return response.data
+}
+
+// പുതിയ പാസ്‌വേഡ് സേവ് ചെയ്യാൻ (Reset Password)
+export const resetPassword = async (token, data) => {
+    const response = await apiClient.post(`/users/reset-password/${token}`, data)
+    return response.data
+}

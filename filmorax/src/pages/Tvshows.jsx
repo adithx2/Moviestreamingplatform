@@ -21,7 +21,7 @@ const TvShows = () => {
 
         const res = await recommendedMovies()
 
-        setShows(res.filter(item => item.image).slice(0, 80))
+        setShows(res.filter(item => item.image).slice(50, 80))
         setFilteredShows(res)
 
         const allGenres = [

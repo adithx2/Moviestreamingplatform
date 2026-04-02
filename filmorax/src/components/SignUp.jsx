@@ -82,7 +82,7 @@ const SignUp = () => {
 
           <input
             type="Confirmpassword"
-            placeholder="ConfirmPassword"
+            placeholder="Password"
             value={confirmPassword}
             onChange={(e) => setconfirmPassword(e.target.value)}
             className="w-full p-3 mb-4 rounded bg-gray-800 focus:outline-none focus:ring-2 focus:ring-red-600"

@@ -54,7 +54,7 @@ const Admin = () => {
     try {
       await logout();
       localStorage.clear();
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       toast.error("Logout failed");
     }

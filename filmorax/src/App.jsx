@@ -13,7 +13,8 @@ import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Admin from './components/Admin'
 import ProtectedRoute from './components/ProtectedRoute'
-
+import ForgotPassword from './components/ForgotPassowd'
+import ResetPassword from './components/ResetPassword'
 
 const App = () => {
   return (
@@ -27,13 +28,25 @@ const App = () => {
 
           <Route path='/admin' element={
 
-              <ProtectedRoute>
+            <ProtectedRoute>
 
-                <Admin />
+              <Admin />
 
-              </ProtectedRoute>
+            </ProtectedRoute>
 
-            } />
+          } />
+
+          <Route path='/forgot-password' element={
+
+            <ForgotPassword />
+
+          } />
+
+          <Route path='/reset-password/:token' element={
+
+            <ResetPassword />
+
+          } />
 
           <Route element={<RootLayout />}>
 

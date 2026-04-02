@@ -1,7 +1,8 @@
 const User = require('../models/User')
 const generateToken = require('../utils/generateToken')
 const bcrypt = require('bcrypt')
-
+const nodemailer = require("nodemailer");
+const jwt = require("jsonwebtoken");
 // users data
 
 const getUsers = async (req, res) => {
@@ -259,6 +260,60 @@ const login = async (req, res) => {
     }
 }
 
+// 1. Forgot Password Logic
+
+const forgotPassword = async (req, res) => {
+
+    const { email } = req.body;
+    try {
+        const user = await User.findOne({ email });
+        if (!user) return res.status(404).json({ message: "User not found" });
+
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, { expiresIn: "15m" });
+
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
+            },
+        });
+
+        const resetLink = `${process.env.FRONTEND_URL}/reset-password/${token}`;
+
+        await transporter.sendMail({
+            from: process.env.EMAIL_USER,
+            to: email,
+            subject: "Password Reset",
+            html: `<p>Click <a href="${resetLink}">here</a> to reset your password.</p>`,
+        });
+
+        console.log(resetLink)
+
+        res.json({ success: true, message: "Email sent!" });
+    } catch (error) {
+        console.log("MAIL ERROR:", error);
+        res.status(500).json({ message: "Server Error" });
+    }
+};
+
+
+// 2. Reset Password Logic
+
+const resetPassword = async (req, res) => {
+    const { token } = req.params;
+    const { password } = req.body;
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        const hashedPassword = await bcrypt.hash(password, 10);
+        await User.findByIdAndUpdate(decoded.id, { password: hashedPassword });
+        res.json({ success: true, message: "Password updated!" });
+    } catch (error) {
+        console.log("DETAILED ERROR:", error);
+        res.status(400).json({ message: "Invalid or expired token" });
+    }
+};
+
 
 const checkUser = async (req, res) => {
 
@@ -282,4 +337,4 @@ const logout = (req, res) => {
 
 
 
-module.exports = { getUsers, createUsers, userID, checkUser, deleteUser, login, logout, updateUser }
+module.exports = { getUsers, createUsers, userID, checkUser, deleteUser, login, logout, updateUser, forgotPassword, resetPassword }

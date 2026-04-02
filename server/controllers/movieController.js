@@ -4,7 +4,7 @@ const watchlist = require('../models/Watchlist')
 const rating = require('../models/Rating')
 const tf = require('@tensorflow/tfjs')
 const Movie = require('../models/Movie')
-const { trainModel } = require('../models/ai')
+const { trainModel } = require('../models/ai');
 
 // const apiKey = '3fde8b43eff1bca041b1dcc05897b78b'
 
@@ -20,7 +20,7 @@ const getRecommendedMovies = async (req, res) => {
 
     const movies = response.data
       .filter(show => show.image)
-      .slice(10, 88)
+      .slice(0, 80)
       .map(show => ({
         id: show.id,
         title: show.title,
@@ -109,11 +109,19 @@ const getAIRecommendations = async (req, res) => {
 
     const userId = req.user.id
 
+
     // get ALL users data 
 
     const allWatchlist = await watchlist.find()
     const allRatings = await rating.find()
 
+    const userData = allRatings.some(r => r.user.toString() === userId.toString()) ||
+     allWatchlist.some(w => w.userId.toString() === userId.toString());
+
+
+    if (!userData) {
+      return getRecommendedMovies(req, res);
+    }
     let data = []
 
     // ratings
@@ -176,7 +184,7 @@ const getAIRecommendations = async (req, res) => {
 
     predictions.sort((a, b) => b.score - a.score)
 
-    const topMovies = predictions.slice(5, 80)
+    const topMovies = predictions.slice(0, 40)
 
     // fetch real data
 
@@ -189,13 +197,18 @@ const getAIRecommendations = async (req, res) => {
 
     res.json(result)
 
+    if (data.length === 0 || userIndex === -1) {
+      return res.json(getTrendingMovies);
+    }
+
   } catch (error) {
     console.log("AI ERROR:", error)
     res.status(500).json({ message: "AI recommendation failed" })
   }
 }
 
-// movieId
+
+// Movie id
 
 const getMovieId = async (req, res) => {
 
@@ -312,5 +325,6 @@ const getTrendingMovies = async (req, res) => {
   }
 
 };
+
 
 module.exports = { getRecommendedMovies, getAIRecommendations, createMovie, deleteMovie, updateMovie, getMovieId, getTrendingMovies };
