@@ -1,17 +1,31 @@
-Here is a comprehensive, professional-grade `README.md` for **FilmoraX**. This version consolidates your architecture, the AI recommendation engine, the security fixes we discussed, and a clean installation guide.
-
------
-
-# 🎬 FilmoraX - Full-Stack Movie Streaming Ecosystem
+# 🎬 FilmoraX - Full-Stack Movie Streaming Platform
 
 **FilmoraX** is a Netflix-inspired streaming platform designed with a focus on cinematic User Experience (UX), secure administrative workflows, and intelligent content discovery. Built as a **Capstone Project**, it demonstrates proficiency in the MERN ecosystem (MongoDB, Express, React, Node.js).
 
-## 🔗 Live Demo: [https://moviestreamingplatform-lps9.vercel.app/](https://moviestreamingplatform-lps9.vercel.app/)
+## 🔗 Live Demo: moviestreamingplatform-lps9.vercel.app
 
 -----
 
-## Directory Structure
+## 🚀 Key Features
 
+  * **🧠 AI-Powered Recommendations:** A custom engine that analyzes library data to suggest personalized content, powered by **TensorFlow.js** integration.
+  * **🔐 Secure Account Recovery:** End-to-end password reset workflow using **Nodemailer** with encrypted, time-sensitive token verification.
+  * **Cinematic Discovery:** Integration with the **TVMaze API** for real-time trending content and metadata.
+  * **Persistent Watchlist:** Full CRUD operations for user-specific movie lists, synced across devices via a dedicated MongoDB backend.
+  * **Role-Based Access Control (RBAC):** Secure `ProtectedRoute` logic segregating standard users from the Administrative dashboard.
+  * **Admin Command Center:** High-level dashboard for managing the global movie catalog, viewing user statistics, and auditing system data.
+
+-----
+
+To make the **FilmoraX** README truly professional, adding a visual representation of the repository's architecture is key. This helps other developers (and recruiters) quickly understand your project's modularity.
+
+Insert this **Directory Structure** section right after the **System Architecture** section in your `README.md`:
+
+---
+
+## 📂 Directory Structure
+
+```text
 adithx2-moviestreamingplatform/
 ├── filmorax/                # FRONTEND (React 19 + Vite)
 │   ├── src/
@@ -30,18 +44,18 @@ adithx2-moviestreamingplatform/
     ├── models/              # MongoDB Schemas: User, Movie, Watchlist, AI
     ├── routers/             # Express API Endpoints mapping
     └── utils/               # Helpers: Token generation & Mailer logic
+```
 
+---
 
-## 🚀 Key Features
+### **Why this structure is effective:**
 
-  * **🧠 AI-Powered Recommendations:** A custom engine that analyzes library data to suggest personalized content, powered by **TensorFlow.js** integration.
-  * **🔐 Secure Account Recovery:** End-to-end password reset workflow using **Nodemailer** with encrypted, time-sensitive token verification.
-  * **Cinematic Discovery:** Integration with the **TVMaze API** for real-time trending content and metadata.
-  * **Persistent Watchlist:** Full CRUD operations for user-specific movie lists, synced across devices via a dedicated MongoDB backend.
-  * **Role-Based Access Control (RBAC):** Secure `ProtectedRoute` logic segregating standard users from the Administrative dashboard.
-  * **Admin Command Center:** High-level dashboard for managing the global movie catalog, viewing user statistics, and auditing system data.
+* **Separation of Concerns:** By highlighting the `services/` folder in the frontend and the `controllers/` folder in the backend, you're showing that you don't write "spaghetti code"—you keep your API logic separate from your UI.
+* **Security Placement:** Explicitly mentioning `middleware/` and `ProtectedRoute` proves that security was a foundational part of your build, not an afterthought.
+* **Scalability:** This structure proves the app is "Production-Ready," meaning new features (like a "Social" or "Comments" section) could be added easily without breaking existing logic.
+* 
 
------
+## 🏗️ System Architecture
 
 ### 🎨 Frontend (`filmorax/`)
 
@@ -58,7 +72,6 @@ adithx2-moviestreamingplatform/
   * **Controllers:** Decoupled logic for Auth, Movies, AI Recommendations, and Watchlists.
 
 -----
-
 
 ## 🔐 Security & Authentication
 
