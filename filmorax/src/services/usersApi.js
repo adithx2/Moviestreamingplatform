@@ -55,7 +55,6 @@ export const forgotPassword = async (data) => {
     return response.data
 }
 
-// പുതിയ പാസ്‌വേഡ് സേവ് ചെയ്യാൻ (Reset Password)
 export const resetPassword = async (token, data) => {
     const response = await apiClient.post(`/users/reset-password/${token}`, data)
     return response.data
