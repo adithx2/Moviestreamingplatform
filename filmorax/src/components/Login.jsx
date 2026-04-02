@@ -59,7 +59,7 @@ const Login = () => {
 
       <form
         onSubmit={handleLogin}
-        className="bg-black/70 relative z-10 p-10 rounded w-96 text-white"
+        className="bg-black/70 relative z-10 p-10 rounded w-97 text-white"
       >
 
         <h1 className="text-3xl font-bold text-yellow-500 mb-6">

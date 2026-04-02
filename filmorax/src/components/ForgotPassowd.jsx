@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-// Assuming you add this to your usersApi.js
 import { forgotPassword } from "../services/usersApi";
 
 const ForgotPassword = () => {
@@ -14,7 +13,7 @@ const ForgotPassword = () => {
         setLoading(true);
 
         try {
-            // Replace with your actual API call
+            
             await forgotPassword({ email });
 
             toast.success("Reset link sent to your email!");

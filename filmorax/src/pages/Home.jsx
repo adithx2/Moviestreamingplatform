@@ -36,7 +36,7 @@ const Home = () => {
     if (!trending.length) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev === trending.length - 1 ? 0 : prev + 1));
-    }, 8000); // Increased to 8s for better readability
+    }, 8000); 
     return () => clearInterval(interval);
   }, [trending]);
 
@@ -73,7 +73,6 @@ const Home = () => {
               className="w-full bg-center h-screen overflow-hidden"
             />
 
-            {/* Professional Gradient Masks */}
             <div className="absolute inset-0 bg-linear-to-r from-[#050505] via-[#050505]/70 to-transparent" />
             <div className="absolute inset-0 bg-linear-to-t from-[#050505] via-transparent to-transparent" />
           </motion.div>
@@ -136,7 +135,7 @@ const Home = () => {
 
       <main className="relative z-20 ">
 
-        {/* Recommendation Row */}
+        {/* Recommendation */}
 
         {aiMovies && aiMovies.length > 0 && (
 

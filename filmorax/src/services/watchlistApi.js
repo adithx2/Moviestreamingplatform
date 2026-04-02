@@ -8,7 +8,7 @@ export const getWatchlist = async () => {
 
 export const createWatchlist = async (movie) => {
 
-    const response = await apiClient.post('/watchlist', movie)
+    const response = await apiClient.post('/watchlist',  movie)
     return response.data
 }
 
