@@ -1,62 +1,75 @@
+Here is a comprehensive, professional-grade `README.md` for **FilmoraX**. This version consolidates your architecture, the AI recommendation engine, the security fixes we discussed, and a clean installation guide.
+
+-----
+
 # 🎬 FilmoraX - Full-Stack Movie Streaming Ecosystem
 
-**FilmoraX** is a Netflix-inspired streaming platform designed with a focus on cinematic User Experience (UX), secure administrative workflows, and efficient state management. Built as a **Capstone Project**, it demonstrates proficiency in the MERN ecosystem (MongoDB, Express, React, Node.js).
+**FilmoraX** is a Netflix-inspired streaming platform designed with a focus on cinematic User Experience (UX), secure administrative workflows, and intelligent content discovery. Built as a **Capstone Project**, it demonstrates proficiency in the MERN ecosystem (MongoDB, Express, React, Node.js).
 
-## 🔗 Live Demo: https://moviestreamingplatform-lps9.vercel.app/
-
-## 🔗 Github Repo: https://github.com/adithx2/Moviestreamingplatform
-
+## 🔗 Live Demo: [https://moviestreamingplatform-lps9.vercel.app/](https://moviestreamingplatform-lps9.vercel.app/)
 
 -----
 
-## 🚀 Key Features
+## Directory Structure
 
-  * **Cinematic Discovery:** Integration with the **TVMaze API** for real-time trending content.
-  * **Persistent Watchlist:** Full CRUD operations for user-specific movie lists, synced across devices via the backend.
-  * **Role-Based Access Control (RBAC):** Secure `ProtectedRoute` logic segregating standard users from the Administrative dashboard.
-  * **Admin Command Center:** High-level dashboard for managing the global movie catalog, viewing user statistics, and auditing data.
-  * **Advanced Search:** Query-based filtering for movies and TV shows with instant UI updates.
-
------
-
-## 🏗️ System Architecture
-
-### 🎨 Frontend (filmorax/)
-
-  * **Framework:** React 19 + Vite (for high-speed development and HMR).
-  * **Routing:** React Router DOM v7 (Nested layouts and authentication guards).
-  * **Styling:** Tailwind CSS 4 + Framer Motion (for smooth transitions and glassmorphism).
-  * **API Layer:** Modular Axios configuration with centralized service files.
-
-### ⚙️ Backend (server/)
-
-  * **Runtime:** Node.js & Express.js.
-  * **Database:** MongoDB with Mongoose (Schema-driven data modeling).
-  * **Security:** JWT-based authentication (JSON Web Tokens) with custom middleware.
-  * **Controllers:** Decoupled logic for Auth, Movies, Ratings, and Watchlists.
-
------
-
-## 📂 Directory Structure
-
-```text
 adithx2-moviestreamingplatform/
-├── filmorax/                # FRONTEND (React)
+├── filmorax/                # FRONTEND (React 19 + Vite)
 │   ├── src/
-│   │   ├── components/      # UI: Admin, Navbar, MovieCard, Search, ProtectedRoute
+│   │   ├── components/      # UI: Admin, Navbar, MovieCard, ProtectedRoute
 │   │   ├── pages/           # Views: Home, MovieDetails, Landing, Watchlist
-│   │   ├── services/        # API calls: usersApi.js, movies.js, watchlistApi.js
+│   │   ├── services/        # API Layer: axiosConfig, usersApi, movies, watchlist
 │   │   ├── layout/          # RootLayout for consistent branding
+│   │   ├── data/            # Local mock data & constants
 │   │   └── App.jsx          # Centralized Route Management
+│   ├── tailwind.config.js   # Style Configuration
 │   └── vite.config.js       # Build Configuration
 └── server/                  # BACKEND (Node.js/Express)
     ├── config/              # Database connection (db.js)
-    ├── controllers/         # Logic for Auth, Movies, Ratings, Watchlist
-    ├── middileware/         # JWT Verification (authMiddileware.js)
-    ├── models/              # Schemas: User, Movie, Watchlist, Rating
-    ├── routers/             # API Endpoints mapping
-    └── utils/               # Helpers: generateToken.js
-```
+    ├── controllers/         # Business Logic: Auth, Movies, AI, Watchlist
+    ├── middileware/         # Security: JWT Verification (authMiddleware.js)
+    ├── models/              # MongoDB Schemas: User, Movie, Watchlist, AI
+    ├── routers/             # Express API Endpoints mapping
+    └── utils/               # Helpers: Token generation & Mailer logic
+
+
+## 🚀 Key Features
+
+  * **🧠 AI-Powered Recommendations:** A custom engine that analyzes library data to suggest personalized content, powered by **TensorFlow.js** integration.
+  * **🔐 Secure Account Recovery:** End-to-end password reset workflow using **Nodemailer** with encrypted, time-sensitive token verification.
+  * **Cinematic Discovery:** Integration with the **TVMaze API** for real-time trending content and metadata.
+  * **Persistent Watchlist:** Full CRUD operations for user-specific movie lists, synced across devices via a dedicated MongoDB backend.
+  * **Role-Based Access Control (RBAC):** Secure `ProtectedRoute` logic segregating standard users from the Administrative dashboard.
+  * **Admin Command Center:** High-level dashboard for managing the global movie catalog, viewing user statistics, and auditing system data.
+
+-----
+
+### 🎨 Frontend (`filmorax/`)
+
+  * **Framework:** React 19 + Vite (for high-speed HMR and optimized builds).
+  * **Routing:** React Router DOM v7 (Nested layouts and authentication guards).
+  * **Styling:** Tailwind CSS 4 + Framer Motion (Glassmorphism UI and smooth transitions).
+  * **API Layer:** Modular Axios configuration with centralized service files for scalability.
+
+### ⚙️ Backend (`server/`)
+
+  * **Runtime:** Node.js & Express.js.
+  * **Database:** MongoDB with Mongoose (Schema-driven data modeling).
+  * **Security:** JWT-based authentication with custom middleware for session persistence.
+  * **Controllers:** Decoupled logic for Auth, Movies, AI Recommendations, and Watchlists.
+
+-----
+
+
+## 🔐 Security & Authentication
+
+### **Automated Password Recovery Workflow**
+
+FilmoraX implements a secure, industry-standard password reset system:
+
+1.  **Request:** User submits a registered email via the `ForgotPassowd.jsx` component.
+2.  **Token Generation:** Backend generates a unique, time-sensitive **JWT**.
+3.  **SMTP Delivery:** Dispatched via **Nodemailer** using **Gmail App Passwords** for high deliverability.
+4.  **Verification:** The `ResetPassword.jsx` view validates the token before allowing a database update.
 
 -----
 
@@ -67,7 +80,12 @@ adithx2-moviestreamingplatform/
     ```bash
     cd server
     npm install
-    # Create .env with MONGODB_URI, JWT_SECRET, and PORT
+    # Create .env with the following:
+    # PORT=5000
+    # MONGODB_URI=your_uri
+    # JWT_SECRET=your_secret
+    # EMAIL_USER=your_email@gmail.com
+    # EMAIL_PASS=xxxx xxxx xxxx xxxx (Google App Password)
     npm start
     ```
 
@@ -83,48 +101,24 @@ adithx2-moviestreamingplatform/
 
 ## 🎓 Capstone Project Conclusion
 
-**FilmoraX** marks a transition from foundational coding to professional software engineering. It successfully bridges a high-fidelity frontend with a robust, secured backend.
+**FilmoraX** marks the transition from foundational coding to professional software engineering. It successfully bridges a high-fidelity frontend with a robust, secured backend.
 
 ### 💡 Key Technical Milestones:
 
-  * **State & Data Sync:** Mastered the synchronization between external API data (TVMaze) and persistent MongoDB storage.
-  * **Security Architecture:** Implemented an end-to-end authentication flow using JWT, from server-side token generation to client-side interceptors.
-  * **Defensive UI Development:** Resolved complex rendering conflicts (e.g., Object-to-Child errors) to ensure a crash-resistant user interface.
-  * **Modular Scalability:** Organized the project into clear service layers, ensuring the platform is ready for future features like AI-based recommendations or YouTube trailer integration.
+  * **Predictive Modeling:** Successfully implemented a client-server AI handshake to deliver personalized content dynamically.
+  * **SMTP Architecture:** Engineered a robust mail-server connection, overcoming 535-Auth errors by implementing modern App Password protocols.
+  * **State & Data Sync:** Mastered synchronization between external API data (TVMaze) and persistent MongoDB storage.
+  * **Defensive UI Development:** Resolved complex rendering conflicts (Object-to-Child errors) to ensure a crash-resistant user interface.
 
 -----
 
-##  Author
+## 👤 Author
 
 **Adith**
 
-  * **GitHub:** https://github.com/adithx2/Moviestreamingplatform
-
+  * **GitHub:** https://github.com/adithx2
   * **Email:** adiths746@gmail.com
 
+-----
 
-FilmoraX is a professional-grade Capstone Project designed to bridge the gap between frontend aesthetics and complex data management. By integrating a high-fidelity Netflix-style UI with a secure Administrative Dashboard, this project demonstrates a mastery of the modern React ecosystem.
-
-
-
-Key Technical Highlights:
-
-
-
-Architecture: Implemented a modular, service-oriented structure using React 19 and Vite.
-
-
-
-Security: Engineered Role-Based Access Control (RBAC) via protected routes to segregate Admin and User environments.
-
-
-
-Data Integrity: Developed defensive logic to synchronize TVMaze API data with persistent localStorage states.
-
-
-
-UI/UX: Leveraged Tailwind CSS 4 to ensure a mobile-first, cinematic experience with seamless navigation.
-
-
-
-This project serves as a comprehensive showcase of my ability to build scalable, secure, and production-ready web applications.
+*Developed as a comprehensive showcase of scalable, secure, and production-ready web application development.*
