@@ -272,11 +272,18 @@ const forgotPassword = async (req, res) => {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, { expiresIn: "15m" });
 
         const transporter = nodemailer.createTransport({
-            service: "gmail",
+            host: "smtp.gmail.com",
+            port: 500,
+            secure: false,
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
             },
+
+            tls: {
+
+                rejectUnauthorized: false
+            }
         });
 
         const resetLink = `${process.env.FRONTEND_URL}/reset-password/${token}`;
