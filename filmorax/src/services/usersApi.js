@@ -55,7 +55,6 @@ export const forgotPassword = async (data) => {
     return response.data
 }
 
-
 export const resetPassword = async (token, data) => {
     const response = await apiClient.post(`/users/reset-password/${token}`, data)
     return response.data
