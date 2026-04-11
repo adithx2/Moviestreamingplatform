@@ -13,7 +13,7 @@ import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Admin from './components/Admin'
 import ProtectedRoute from './components/ProtectedRoute'
-import ForgotPassword from './components/ForgotPassowd'
+import ForgotPassword from './components/ForgotPassword'
 import ResetPassword from './components/ResetPassword'
 
 const App = () => {

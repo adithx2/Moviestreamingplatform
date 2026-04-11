@@ -3,6 +3,7 @@ const generateToken = require('../utils/generateToken')
 const bcrypt = require('bcrypt')
 const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
+
 // users data
 
 const getUsers = async (req, res) => {
@@ -203,7 +204,7 @@ const login = async (req, res) => {
 
         const { email, password } = req.body
 
-        if ((!email) || (!password)) {
+        if ((!email) || (!password)) { 
 
             return res.status(400).json({
 

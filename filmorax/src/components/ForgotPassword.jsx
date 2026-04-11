@@ -11,9 +11,8 @@ const ForgotPassword = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-
         try {
-            
+
             await forgotPassword({ email });
 
             toast.success("Reset link sent to your email!");
