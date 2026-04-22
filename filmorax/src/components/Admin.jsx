@@ -158,7 +158,7 @@ const Admin = () => {
       <main className="flex-1 md:ml-64 p-6 lg:p-10 m-10">
         <header className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-white capitalize">{activeTab}</h1>
-          <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="md:hidden p-2 text-yellow-500 border border-yellOw-500 rounded">
+          <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="md:hidden p-2 text-yellow-500 border border-yellow-500 rounded">
             <FaList />
           </button>
         </header>
@@ -221,24 +221,50 @@ const Admin = () => {
             </div>
 
             {/* Movies List Table */}
-            <div className="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-              <table className="w-full text-left">
-                <thead className="bg-gray-800 text-gray-400 text-xs uppercase">
+            <div className="bg-gray-900 rounded-xl border border-gray-800 overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-gray-800 text-gray-400 text-xs uppercase sticky top-0">
                   <tr>
-                    <th className="p-4">Movie</th>
+                    <th className="p-4">Genres</th>
                     <th className="p-4">Rating</th>
-                    <th className="p-4">Year</th>
                     <th className="p-4 text-right">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-800">
-                  {users.map((u) => (
-                    <tr key={u._id} className="hover:bg-gray-800/50">
-                      <td className="p-4 font-medium text-white">{u.name}</td>
-                      <td className="p-4 text-gray-400">{u.email}</td>
-                      <td className="p-4 text-xs font-bold text-yellow-500 uppercase">{u.role || 'User'}</td>
+                  {movies && movies.length > 0 ? (
+                    movies.map((m, index) => (
+                      <tr key={m._id || index} className="hover:bg-gray-800/50 transition-colors">
+
+                        <td className="p-4 text-gray-300 text-xs">
+                          {Array.isArray(m.genres) ? m.genres.slice(0, 2).join(", ") : typeof m.genres === "string" ? m.genres : "N/A"}
+                        </td>
+                        <td className="p-4 text-yellow-400 font-semibold">
+                          {typeof m.rating === "object" ? m.rating?.average : m.rating || "N/A"}
+                        </td>
+
+                        <td className="p-4 text-right flex gap-3 justify-end">
+                          <button
+                            onClick={() => handleEditMovie(m)}
+                            className="text-blue-500 hover:text-blue-400 transition-colors p-1 hover:bg-blue-500/10 rounded"
+                            title="Edit"
+                          >
+                            <FaEdit />
+                          </button>
+                          <button
+                            onClick={() => handleDeleteMovie(m._id)}
+                            className="text-red-500 hover:text-red-400 transition-colors p-1 hover:bg-red-500/10 rounded"
+                            title="Delete"
+                          >
+                            <FaTrash />
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="6" className="p-8 text-center text-gray-400">No movies found. Add one to get started!</td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             </div>

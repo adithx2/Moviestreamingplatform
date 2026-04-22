@@ -65,11 +65,11 @@ const Navbar = () => {
   return (
     <div>
 
-      <nav className={`fixed top-0 left-0 w-full h-18 z-50 text-white px-6 py-4 flex items-center justify-between transition-colors duration-300 ${scrolled ? "bg-black/2 backdop-blur-md" : "bg-black/2 backrop-blur-md"}`}
+      <nav className={`fixed top-0 left-0 w-full h-auto z-50 text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 flex items-center justify-between transition-colors duration-300 ${scrolled ? "bg-black/2 backdop-blur-md" : "bg-black/2 backrop-blur-md"}`}
       >
         {/* Logo */}
 
-        <div className='text-white text-2xl font-bold'>
+        <div className='text-white text-xl sm:text-2xl font-bold'>
 
           <Link to='/home'>Filmora<span className='text-yellow-500'>X</span></Link>
 
@@ -77,8 +77,8 @@ const Navbar = () => {
 
         {/* Menu */}
 
-        <div className='flex justify-center px-20'>
-          <ul className='gap-5 hidden md:flex  whitespace-nowrap '>
+        <div className='flex justify-center px-4 sm:px-8 md:px-20'>
+          <ul className='gap-4 sm:gap-5 hidden md:flex whitespace-nowrap '>
             <li>
               <Link to='/home' className="hover:text-gray-300">Home</Link>
             </li>
@@ -123,8 +123,8 @@ const Navbar = () => {
 
         <div className="flex items-center">
           <FaUserCircle
-            size={28}
-            className="cursor-pointer"
+            size={24}
+            className="sm:w-7 sm:h-7 cursor-pointer"
             onClick={() => {
               const user = JSON.parse(localStorage.getItem("user"));
 
@@ -142,8 +142,8 @@ const Navbar = () => {
 
         {/* Mobile Hamburger */}
 
-        <div 
-          className="md:hidden text-2xl cursor-pointer transition-all duration-300" 
+        <div
+          className="md:hidden text-xl sm:text-2xl cursor-pointer transition-all duration-300"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <FaTimes className="text-yellow-500" /> : <FaBars />}
@@ -154,46 +154,46 @@ const Navbar = () => {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed top-14 left-0 w-full bg-black/2 backdrop-blr-md text-white z-40 md:hidden"
+            className="fixed top-16 sm:top-18 left-0 w-full bg-black/2 backdrop-blur-md text-white z-40 md:hidden"
             variants={mobileMenuVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
           >
             {/* Navigation Links */}
-            <motion.div className='flex flex-col gap-4 px-6 py-6'>
+            <motion.div className='flex flex-col gap-3 sm:gap-4 px-4 sm:px-6 py-4 sm:py-6'>
               <motion.div variants={mobileItemVariants}>
-                <Link 
-                  to="/home" 
-                  onClick={() => setMenuOpen(false)} 
-                  className='block text-base font-medium text-white hover:text-yellow-400 transition-colors'
+                <Link
+                  to="/home"
+                  onClick={() => setMenuOpen(false)}
+                  className='block text-sm sm:text-base font-medium text-white hover:text-yellow-400 transition-colors'
                 >
                   Home
                 </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
-                <Link 
-                  to="/movies" 
-                  onClick={() => setMenuOpen(false)} 
-                  className='block text-base font-medium text-white hover:text-yellow-400 transition-colors'
+                <Link
+                  to="/movies"
+                  onClick={() => setMenuOpen(false)}
+                  className='block text-sm sm:text-base font-medium text-white hover:text-yellow-400 transition-colors'
                 >
                   Movies
                 </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
-                <Link 
-                  to="/tvshows" 
-                  onClick={() => setMenuOpen(false)} 
-                  className='block text-base font-medium text-white hover:text-yellow-400 transition-colors'
+                <Link
+                  to="/tvshows"
+                  onClick={() => setMenuOpen(false)}
+                  className='block text-sm sm:text-base font-medium text-white hover:text-yellow-400 transition-colors'
                 >
                   TV Shows
                 </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
-                <Link 
-                  to="/watchlist" 
-                  onClick={() => setMenuOpen(false)} 
-                  className='block text-base font-medium text-white hover:text-yellow-400 transition-colors'
+                <Link
+                  to="/watchlist"
+                  onClick={() => setMenuOpen(false)}
+                  className='block text-sm sm:text-base font-medium text-white hover:text-yellow-400 transition-colors'
                 >
                   Watchlist
                 </Link>
@@ -201,14 +201,14 @@ const Navbar = () => {
             </motion.div>
 
             {/* Mobile Search */}
-            <motion.form onSubmit={handleSearch} className="relative px-6 pb-6" variants={mobileItemVariants}>
-              <FaSearch className="absolute top-5 left-8 -translate-y-1/2 text-gray-400" />
+            <motion.form onSubmit={handleSearch} className="relative px-4 sm:px-6 pb-4 sm:pb-6" variants={mobileItemVariants}>
+              <FaSearch className="absolute top-1/2 left-6 sm:left-8 -translate-y-1/2 text-gray-400 text-sm sm:text-base" />
               <input
                 type="text"
                 placeholder="Search..."
                 value={click}
                 onChange={(e) => setClick(e.target.value)}
-                className="w-full bg-black/50 border border-yellow-500 text-white px-10 py-2 rounded-lg placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition-colors"
+                className="w-full bg-black/50 border border-yellow-500 text-white text-sm sm:text-base px-8 sm:px-10 py-2 rounded-lg placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition-colors"
               />
             </motion.form>
           </motion.div>
