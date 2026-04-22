@@ -116,7 +116,7 @@ const getAIRecommendations = async (req, res) => {
     const allRatings = await rating.find()
 
     const userData = allRatings.some(r => r.user.toString() === userId.toString()) ||
-     allWatchlist.some(w => w.userId.toString() === userId.toString());
+      allWatchlist.some(w => w.userId.toString() === userId.toString());
 
 
     if (!userData) {

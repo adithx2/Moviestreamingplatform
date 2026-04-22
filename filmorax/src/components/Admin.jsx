@@ -232,15 +232,11 @@ const Admin = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-800">
-                  {movies.map((m) => (
-                    <tr key={m.id} className="hover:bg-gray-800/50 transition-colors">
-                      <td className="p-4 text-white font-medium">{m.genres}</td>
-                      <td className="p-4"><span className="bg-gray-800 px-2 py-1 rounded text-yellow-500">★ {m._rating}</span></td>
-                      <td className="p-4 text-gray-400">{m.year}</td>
-                      <td className="p-4 text-right space-x-3">
-                        <button onClick={() => handleEditMovie(m)} className="text-blue-400 hover:text-blue-300"><FaEdit /></button>
-                        <button onClick={() => handleDeleteMovie(m._id)} className="text-red-500 hover:text-red-400"><FaTrash /></button>
-                      </td>
+                  {users.map((u) => (
+                    <tr key={u._id} className="hover:bg-gray-800/50">
+                      <td className="p-4 font-medium text-white">{u.name}</td>
+                      <td className="p-4 text-gray-400">{u.email}</td>
+                      <td className="p-4 text-xs font-bold text-yellow-500 uppercase">{u.role || 'User'}</td>
                     </tr>
                   ))}
                 </tbody>
