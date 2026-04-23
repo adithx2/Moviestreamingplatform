@@ -154,7 +154,7 @@ const Navbar = () => {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed top-16 sm:top-18 left-0 w-full bg-black/2 backdrop-blur-md text-white z-40 md:hidden"
+            className="fixed top-16 sm:top-18 left-0 w-full text-white z-40 md:hidden"
             variants={mobileMenuVariants}
             initial="hidden"
             animate="visible"
